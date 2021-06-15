@@ -275,7 +275,7 @@ function submitForm() {
 
                     var authString = window.btoa($("#ucp-api-key-id").val() + ':' + $('#ucp-api-key-secret').val());
                     requestUrl = "https://" + $("#ucp-account").val() + ".evergage.com/api2/authevent/" + $("#ucp-dataset").val() + "/" + authString;
-                    requestUrl = "https://iadler.herokuapp.com/evergage/api/" + $("#ucp-account").val() + '/' + $("#ucp-dataset").val() + '/' + authString
+                    requestUrl = "/evergage/api/" + $("#ucp-account").val() + '/' + $("#ucp-dataset").val() + '/' + authString
                     
                     var requestSettings = {
                         "url": requestUrl,
@@ -366,7 +366,7 @@ function submitForm() {
 
                             var authString = window.btoa($("#ucp-api-key-id").val() + ':' + $('#ucp-api-key-secret').val());
                             requestUrl = "https://" + $("#ucp-account").val() + ".evergage.com/api2/authevent/" + $("#ucp-dataset").val() + "/" + authString;
-                            requestUrl = "https://iadler.herokuapp.com/evergage/api/" + $("#ucp-account").val() + '/' + $("#ucp-dataset").val() + '/' + authString
+                            requestUrl = "/evergage/api/" + $("#ucp-account").val() + '/' + $("#ucp-dataset").val() + '/' + authString
 
 
                             var requestSettings = {
