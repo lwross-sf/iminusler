@@ -1,0 +1,585 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Interaction Studio Demo Builder</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="stylesheet" type="text/css" href="/ui/styles/common.css" />
+    <style>
+      .body, html { background-color: #f8f8f8; height: 100%;}
+      header[role="global-header"] {background-color: white; border-bottom: 5px solid #e98300;}
+      div[role="navigation"] {background:white; height:100%;}
+      .slds-page-header__title {font-size: 1.25rem;}
+      .slds-brand-band:before {background-repeat: repeat;}
+      .slds-brand-band.slds-brand-band_large:before {height: 100%;}
+      .slds-brand-band.slds-brand-band_large:after {display:none;}
+      .slds-table_resizable-cols thead th {padding:0.5rem 0;}
+      .slds-page-header__detail-block {padding-right: 0rem;}
+      .slds-notify_container {top:50px;}
+      .slds-checkbox-button {width: 6rem;}
+      #mainNavigation { height: 100vh; background-color: #003459; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; }
+      #mainNavigation a:hover {color:rgba(255, 255, 255, 0.75) !important;}
+      .slds-card__body .slds-text-title {font-size: 0.875rem !important;}
+      .slds-tabs_default__content {padding: 0rem !important;}
+      .slds-tabs_default__item {font-size: 0.875rem; padding: 0 1rem;}
+      #mainNavigation svg { vertical-align: top !important; }
+      .slds-input {padding:0 0.5rem;}
+    </style>
+  </head>
+  <body class="slds-brand-band slds-brand-band_large">
+    <!-- Header -->
+    <header class="slds-grid slds-wrap slds-p-horizontal_medium slds-p-vertical_small" role="global-header">
+      <a href="/" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+        <img src="/assets/images/logo.svg" width="50" alt="Salesforce" border="0" role="logo">
+        <span style="color:#1AA0DB;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;data</span>
+        <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">builder&nbsp;</span>
+      </a>
+    </header>
+    <main class="slds-grid slds-wrap" style="background-color: #f8f8f8; height: 100%;">
+      <!-- sidebar nav -->
+      <nav id="mainNavigation" class="slds-size_1-of-4 slds-medium-size_1-of-6 slds-large-size_1-of-8">
+        <a href="/interactionstudio" class="slds-text-align_center slds-m-top_large" style="text-decoration:none;">
+          <span style="color:#fff;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;interaction</span>
+          <span style="color:#fff;font-size:22px;font-weight:400;letter-spacing:-0.05em;">studio&nbsp;</span>
+        </a>
+        <ul class="slds-p-bottom_medium">
+          <li class="slds-text-align_center slds-p-bottom_x-large slds-text-color_inverse">
+            <a href="/interactionstudio" class="slds-button slds-text-color_inverse">
+              <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#back"></use>
+              </svg>Back
+            </a>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="https://salesforce.quip.com/AKfvAelTZswr" target="_blank">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">User Guide</span>
+              </span>
+            </a>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="https://forms.gle/NWxtrYQbd11Vxt4GA" target="_blank">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#comments"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">Feedback</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // sidebar nav -->
+      <!-- main content -->
+      <div class="slds-size_3-of-4 slds-medium-size_5-of-6 slds-large-size_7-of-8 slds-p-around_medium" id="mainContainer" style="position:relative;">
+        <div class="slds-container_x-large slds-container_center slds-p-top_medium slds-p-horizontal_large">
+          <!-- Breadcrumbs -->
+          <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_medium">
+            <nav role="navigation" aria-label="Breadcrumbs">
+              <ol class="slds-breadcrumb slds-list--horizontal">
+                <li class="slds-breadcrumb__item slds-text-title--caps">Welcome to <strong>Interaction Studio Actions Builder</strong></li>
+              </ol>
+            </nav>
+          </div>
+          <!-- /Breadcrumbs -->
+          <!-- Section 1 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow" aria-label="Demo Environment">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__body">
+                  <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_large slds-m-bottom_small slds-text-align_left slds-p-left_medium">Settings for your <strong>Demo Environment</strong></h2>
+                  <div class="slds-grid slds-size_1-of-1 slds-wrap">
+                    <div class="slds-size_1-of-1 slds-text-align_left slds-text-title slds-p-bottom_large slds-p-left_medium">
+                      Not sure what to do? See the <a href="/interactionstudio#help" target="_blank">Help</a> section on the main page for further guidance.
+                    </div>
+                    <div class="slds-form-element slds-size_1-of-4 slds-p-horizontal_medium">
+                      <label class="slds-form-element__label" for="ucp-account">Account</label>
+                      <div class="slds-form-element__icon">
+                        <button class="slds-button slds-button_icon" aria-describedby="help">
+                          <svg class="slds-button__icon" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Help</span>
+                        </button>
+                        <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide" role="tooltip" style="position:absolute;top:-90px;left:-15px;width:300px">
+                          <div class="slds-popover__body">
+                            <div class="slds-popover__body">
+                              Examples: <br>
+                              <strong>interactionstudio, lross123456.australia-3</strong><br>
+                              For further help see the "How To Get Your Account" section in the <a href="/interactionstudio/#help" target="_blank"></a>Help Guides</a>.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slds-form-element__control">
+                        <input type="text" id="ucp-account" placeholder="interactionstudio" class="slds-input">
+                      </div>
+                      <div class="slds-form-element__help"></div>
+                    </div>
+                    <div class="slds-form-element slds-size_1-of-4 slds-p-horizontal_medium">
+                      <label class="slds-form-element__label" for="ucp-dataset">Dataset</label>
+                      <div class="slds-form-element__control">
+                        <input type="text" id="ucp-dataset" placeholder="dataset name..." class="slds-input">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Section 1 -->
+          <!-- Section 2 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow" aria-label="Options" style="padding-top:0.25rem !important;">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <div class="slds-tabs_default">
+                      <ul class="slds-tabs_default__nav" role="tablist">
+                        <li class="slds-tabs_default__item slds-is-active" title="Category" role="presentation">
+                          <div class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item" aria-invalid="0">User Actions
+                          </div>
+                        </li>
+                        <li class="slds-tabs_default__item" title="ItemClass" role="presentation">
+                          <div class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Catalog Actions</div>
+                        </li>
+                      </ul>
+                      <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                        <div id="ucp-form">
+                          <article class="slds-card slds-p-top_small">
+                            <div class="slds-card__body slds-grid slds-m-around_none">
+                              <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-user-id" placeholder="User ID" class="slds-input" name="ucp-user-id" data-lpignore="true">
+                                </div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+                                <label class="slds-checkbox_toggle slds-grid">
+                                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                                <input type="checkbox" name="checkbox-toggle-anon" value="checkbox-toggle-anon" aria-describedby="checkbox-toggle-anon">
+                                <span id="checkbox-toggle-anon" class="slds-checkbox_faux_container" aria-live="assertive">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-checkbox_on" style="display: block;">Known</span>
+                                <span class="slds-checkbox_off" style="display: none;">Anonymous</span>
+                                </span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="slds-card__body slds-grid slds-m-around_none ucp-user-row ucp-user-catalog-actions-row">
+                              <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-item-type">Catalog Type</label>
+                                <div class="slds-form-element__control">
+                                  <div class="slds-select_container">
+                                    <select class="slds-select" id="ucp-item-type" name="ucp-item-type" onchange="changeActionTypeOptions(this)">
+                                      <option value="p">Product</option>
+                                      <option value="a">Article</option>
+                                      <option value="b">Blog</option>
+                                      <option value="c">Category</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-item-id">Item</label>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-item-id" name="ucp-item-id" placeholder="Item ID" class="slds-input" data-lpignore="true">
+                                </div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-action">Action Type</label>
+                                <div class="slds-form-element__icon">
+                                  <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Help</span>
+                                  </button>
+                                  <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip" style="position:absolute;top:-95px;left:-15px;width:210px">
+                                    <div class="slds-popover__body">To have multiple products in a "Purchase" or "Add to Cart", create multiple rows with the same value in the Datetime</div>
+                                  </div>
+                                </div>
+                                <div class="slds-form-element__control">
+                                  <div class="slds-select_container">
+                                    <select class="slds-select" id="ucp-action" name="ucp-action" onchange="changeActionNumPlaceholder(this)">
+                                      <option value="View Item">View Item</option>
+                                      <option value="View Time">View Time</option>
+                                      <option value="Purchase">Purchase</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-action-num">Number</label>
+                                <div class="slds-form-element__icon">
+                                  <button class="slds-button slds-button_icon slds-hidden" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Help</span>
+                                  </button>
+                                  <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip" style="position:absolute;top:-78px;left:-15px;width:210px">
+                                    <div class="slds-popover__body">Quantity should be an integer, and Price should be the Item Price without the dollar sign</div>
+                                  </div>
+                                </div>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-action-num" placeholder="# seconds" class="slds-input" name="ucp-action-num">
+                                </div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-action-datetime">Datetime</label>
+                                <div class="slds-form-element__icon">
+                                  <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Help</span>
+                                  </button>
+                                  <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip" style="position:absolute;top:-58px;left:-15px;width:170px">
+                                    <div class="slds-popover__body">Leave this box empty for current datetime</div>
+                                  </div>
+                                </div>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-action-datetime" class="slds-input" name="ucp-action-datetime">
+                                </div>
+                                <div class="slds-form-element__help">Format: 01 Jan 2020 12:34:56</div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium" id="remove-row">
+                                <span class="slds-form-element__label">&nbsp;</span>
+                                <div class="slds-form-element__control">
+                                  <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Row" onclick="removeRow(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Delete Row</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slds-card__body slds-grid slds-m-around_none ucp-user-row ucp-user-actions-row">
+                              <div class="slds-form-element slds-size_2-of-8 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-action-id">Action Name</label>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-action-id" name="ucp-action-id" placeholder="e.g. Homepage Visit" class="slds-input" data-lpignore="true">
+                                </div>
+                              </div>
+                              <div class="slds-form-element slds-size_3-of-8 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-action-attributes">Optional Attributes</label>
+                                <div class="slds-form-element__icon">
+                                  <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Help</span>
+                                  </button>
+                                  <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip" style="position:absolute;top:-95px;left:-15px;width:250px">
+                                    <div class="slds-popover__body">To have these attributes appear in your UCP, ensure you've created the Attributes first in your IS dataset -&gt; Setup</div>
+                                  </div>
+                                </div>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-action-attributes" class="slds-input" name="ucp-action-attributes">
+                                </div>
+                                <div class="slds-form-element__help">Format: attribute1:value;attribute2:value;</div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="ucp-action-datetime">Datetime</label>
+                                <div class="slds-form-element__icon">
+                                  <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Help</span>
+                                  </button>
+                                  <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip" style="position:absolute;top:-58px;left:-15px;width:170px">
+                                    <div class="slds-popover__body">Leave this box empty for current datetime</div>
+                                  </div>
+                                </div>
+                                <div class="slds-form-element__control">
+                                  <input type="text" id="ucp-action-custom-datetime" class="slds-input" name="ucp-action-datetime">
+                                </div>
+                                <div class="slds-form-element__help">Format: 01 Jan 2020 12:34:56</div>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium" id="remove-row-custom">
+                                <span class="slds-form-element__label">&nbsp;</span>
+                                <div class="slds-form-element__control">
+                                  <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Row" onclick="removeRowCustom(this)">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Delete Row</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slds-card__body slds-grid slds-m-around_none">
+                              <div class="slds-form-element slds-size_1-of-2 slds-p-top_small slds-p-left_medium">
+                                <a class="slds-button slds-button_outline-brand" id="ucp-data-add">
+                                  Add Catalog Action Row
+                                </a>
+                                <a class="slds-button slds-button_outline-brand" id="ucp-data-add-custom">
+                                  Add Custom Event Row
+                                </a>
+                                <a class="slds-button slds-button_outline-brand" id="ucp-data-duplicate">
+                                  Duplicate Row
+                                </a>
+                              </div>
+                              <div class="slds-form-element slds-size_1-of-2 slds-p-top_medium slds-p-right_medium" style="text-align: right;">
+                                <button class="slds-button slds-button_brand" id="submitUserCatalogActions" onclick="submitUserCatalogActions()">
+                                  Submit
+                                  <div class="slds-spinner_container" id="userCatalogActionsSpinner" style="display: none;">
+                                    <div role="status" class="slds-spinner slds-spinner_x-small">
+                                      <span class="slds-assistive-text">Loading</span>
+                                      <div class="slds-spinner__dot-a"></div>
+                                      <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                  </div>
+                                </button>
+                              </div>
+                            </div>
+                            <footer class="slds-card__footer" id="userCatalogActionsFooter"></footer>
+                          </article>
+                        </div>
+                      </div>
+                      <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
+                        <div id="ucp-tag-form">
+                          <div>
+                            <article class="slds-card ucp-catalog-dimension-setup-row">
+                              <div class="slds-card__body slds-grid slds-m-around_none">
+                                <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+                                  <label class="slds-form-element__label" for="ucp-tag-type">Dimension</label>
+                                  <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                      <select class="slds-select" id="ucp-tag-type" name="ucp-tag-type">
+                                        <option value="">Select…</option>
+                                        <option value="Category">Category</option>
+                                        <option value="Brand">Brand</option>
+                                        <option value="Style">Style</option>
+                                        <option value="ItemClass">Item Class</option>
+                                        <option value="Gender">Gender</option>
+                                        <option value="Badge">Badge</option>
+                                        <option value="Keyword">Keyword</option>
+                                        <option value="Author">Author</option>
+                                        <option value="ContentClass">Content Class</option>
+                                        <option value="Custom">Custom</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-form-element slds-size_1-of-2 slds-p-around_medium">
+                                  <label class="slds-form-element__label" for="ucp-tag-ids">Dimension Values</label>
+                                  <div class="slds-form-element__control">
+                                    <input type="text" id="ucp-tag-ids" name="ucp-tag-ids" placeholder="Value1;Value2,..." class="slds-input" data-lpignore="true">
+                                  </div>
+                                  <div class="slds-form-element__help">Semi-colon separated list of all dimension
+                                    values
+                                  </div>
+                                </div>
+                                <div class="slds-form-element slds-size_1-of-6 slds-p-around_medium">
+                                  <label class="slds-form-element__label" for="text-input-id-1">&nbsp;</label>
+                                  <div class="slds-form-element__control">
+                                    <button class="slds-button slds-button_brand" id="submitCatalogDimensionSetup" href="javascript:void(0)" onclick="submitCatalogDimensionSetup()">
+                                      Submit
+                                      <div class="slds-spinner_container" id="dimensionSpinner" style="display: none;">
+                                        <div role="status" class="slds-spinner slds-spinner_x-small">
+                                          <span class="slds-assistive-text">Loading</span>
+                                          <div class="slds-spinner__dot-a"></div>
+                                          <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                      </div>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <footer class="slds-card__footer" id="catalogDimensionSetupFooter"></footer>
+                            </article>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </article>
+          </div>
+        </div>
+        <!-- // Section 2 -->
+        <template id="hidden-section-row-storage-catalog">
+          <div class="slds-card__body slds-grid slds-m-around_none ucp-user-row ucp-user-catalog-actions-row">
+            <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-item-type">Catalog Type</label>
+              <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                  <select class="slds-select" id="ucp-item-type" name="ucp-item-type"
+                    onchange="changeActionTypeOptions(this)">
+                    <option value="p">Product</option>
+                    <option value="a">Article</option>
+                    <option value="b">Blog</option>
+                    <option value="c">Category</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-item-id">Item</label>
+              <div class="slds-form-element__control">
+                <input type="text" name="ucp-item-id" placeholder="Item ID"
+                  class="slds-input" data-lpignore="true"  />
+              </div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-action">Action Type</label>
+              <div class="slds-form-element__icon">
+                <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help</span>
+                </button>
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip"
+                  style="position:absolute;top:-95px;left:-15px;width:210px">
+                  <div class="slds-popover__body">To have multiple products in a "Purchase" or "Add to Cart", create multiple rows with the same value in the Datetime</div>
+                </div>
+              </div>
+              <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                  <select class="slds-select" id="ucp-action" name="ucp-action"
+                    onchange="changeActionNumPlaceholder(this)">
+                    <option value="View Item">View Item</option>
+                    <option value="View Time">View Time</option>
+                    <option value="Purchase">Purchase</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-action-num">Number</label>
+              <div class="slds-form-element__icon">
+                <button class="slds-button slds-button_icon slds-hidden" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help</span>
+                </button>
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip"
+                  style="position:absolute;top:-78px;left:-15px;width:210px">
+                  <div class="slds-popover__body">Quantity should be an integer, and Price should be the Item Price without the dollar sign</div>
+                </div>
+              </div>
+              <div class="slds-form-element__control">
+                <input type="text" id="ucp-action-num" placeholder="# times" class="slds-input"
+                  name="ucp-action-num" />
+              </div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-action-datetime">Datetime</label>
+              <div class="slds-form-element__icon">
+                <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help</span>
+                </button>
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip"
+                  style="position:absolute;top:-58px;left:-15px;width:170px">
+                  <div class="slds-popover__body">Leave this box empty for current datetime</div>
+                </div>
+              </div>
+              <div class="slds-form-element__control">
+                <input type="text" id="ucp-action-datetime" class="slds-input" name="ucp-action-datetime" />
+              </div>
+              <div class="slds-form-element__help">Format: 01 Jan 2020 12:34:56</div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium" id="remove-row">
+              <span class="slds-form-element__label">&nbsp;</span>
+              <div class="slds-form-element__control">
+                <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Row" onclick="removeRow(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Delete Row</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template id="hidden-section-row-storage-custom">
+          <div class="slds-card__body slds-grid slds-m-around_none ucp-user-row ucp-user-actions-row">
+            <div class="slds-form-element slds-size_2-of-8 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-action-id">Action Name</label>
+              <div class="slds-form-element__control">
+                <input type="text" name="ucp-action-id" placeholder="e.g. Homepage Visit"
+                  class="slds-input" data-lpignore="true"  />
+              </div>
+            </div>
+            <div class="slds-form-element slds-size_3-of-8 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-action-attributes">Optional Attributes</label>
+              <div class="slds-form-element__icon">
+                <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help</span>
+                </button>
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip"
+                  style="position:absolute;top:-95px;left:-15px;width:250px">
+                  <div class="slds-popover__body">To have these attributes appear in your UCP, ensure you've created the Attributes first in your IS dataset -> Setup</div>
+                </div>
+              </div>
+              <div class="slds-form-element__control">
+                <input type="text" id="ucp-action-attributes" class="slds-input" name="ucp-action-attributes" />
+              </div>
+              <div class="slds-form-element__help">Format: attribute1:value;attribute2:value;</div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-4 slds-p-around_medium">
+              <label class="slds-form-element__label" for="ucp-action-datetime">Datetime</label>
+              <div class="slds-form-element__icon">
+                <button class="slds-button slds-button_icon" aria-describedby="help" onmouseover="toggleHelp(this)" onmouseout="toggleHelp(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#info"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Help</span>
+                </button>
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hidden" role="tooltip"
+                  style="position:absolute;top:-58px;left:-15px;width:170px">
+                  <div class="slds-popover__body">Leave this box empty for current datetime</div>
+                </div>
+              </div>
+              <div class="slds-form-element__control">
+                <input type="text" id="ucp-action-custom-datetime" class="slds-input" name="ucp-action-datetime" />
+              </div>
+              <div class="slds-form-element__help">Format: 01 Jan 2020 12:34:56</div>
+            </div>
+            <div class="slds-form-element slds-size_1-of-8 slds-p-around_medium" id="remove-row-custom">
+              <span class="slds-form-element__label">&nbsp;</span>
+              <div class="slds-form-element__control">
+                <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Row" onclick="removeRowCustom(this)">
+                  <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Delete Row</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      </div>
+      <!-- main content -->
+    </main>
+    <div id="global-footer"></div>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-menus.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-popovers.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-progress-indicator.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-slider.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-tabs.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-toast.min.js"></script>
+  <script src="/app/scripts/jquery.csv.js"></script>
+  <script src="index.js"></script>
+</html>

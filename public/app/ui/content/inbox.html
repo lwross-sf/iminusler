@@ -1,0 +1,146 @@
+<style>
+  .nav-link {font-size:15px;}
+  .email-open {font-weight: 700;}
+  .email-sender {color: #343a40!important; display: flex!important; font-size: 15px;  padding: 0.5rem; width:220px; text-decoration:none !important; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+  .email-subject {color: #343a40!important; display: flex!important; font-size: 15px; padding: 0.5rem; width:calc(100% - 300px); text-decoration:none !important; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+  .email-date {color: #343a40!important; display: flex!important; font-size: 15px; padding: 0.5rem; width:80px; text-decoration:none !important; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+</style>
+<div class="slds-size_1-of-1 slds-grid slds-wrap" style="background-color:white; font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important; height:100%;">
+  <div class="slds-grid slds-wrap" style="width:150px;">
+    <div class="slds-size_1-of-1 slds-align_absolute-center" style="height:78px !important;">
+      <a href="#"><img src="/app/ui/images/inbox/salesforce_inbox.png" style="height:40px !important;"></a>
+    </div>
+  </div>
+  <div class="slds-p-bottom_x-small" style="width:calc(100% - 150px);">
+    <nav class="slds-size_1-of-1 slds-p-top_large slds-p-left_small navbar flex-md-nowrap bg-white">
+      <input class="form-control w-100 bg-light" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap align-middle">
+          <span class="material-icons md-light pr-3">help_outline</span><span class="material-icons md-light pr-3">settings</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="slds-grid slds-wrap" style="width:250px; box-shadow: 5px 0px 5px 0px rgba(240,240,240,1);">
+    <div class="slds-size_1-of-1 slds-p-top_large slds-p-horizontal_medium">
+      <button class="slds-button slds-button_neutral" style="font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif !important; border-radius:30px; color:#3c4043; font-weight:500; font-size:15px; padding: 8px 24px;box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);">
+      <img src="/app/ui/images/inbox/google_plus.png" width="30" class="slds-m-right_x-small"/>Compose
+      </button>
+    </div>
+    <div class="slds-size_1-of-1">
+      <ul class="slds-size_1-of-1 slds-p-top_small slds-p-bottom_xx-large" style="height:80vh;">
+        <li class="nav-item slds-p-left_small slds-m-right_x-small" style="background-color: #fce8e6; border-top-right-radius:20px; border-bottom-right-radius:20px;">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons">inbox</span>
+          <span class="slds-p-left_small" style="font-weight:bold; padding-right:110px;">Inbox</span>
+          <span class="slds-badge slds-theme_error" style="font-size:12px; padding:0.125rem 0.3rem;">{{count}}</span>
+          </a>
+        </li>
+        <li class="nav-item slds-p-left_small">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons">star_outline</span>
+          <span class="slds-p-left_small">Starred</span>
+          </a>
+        </li>
+        <li class="nav-item slds-p-left_small">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons">send</span>
+          <span class="slds-p-left_small">Sent</span>
+          </a>
+        </li>
+        <li class="nav-item slds-p-left_small">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons">delete_outline</span>
+          <span class="slds-p-left_small">Bin</span>
+          </a>
+        </li>
+        <li class="nav-item slds-p-left_small">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons">label_important</span>
+          <span class="slds-p-left_small">Important</span>
+          </a>
+        </li>
+        <li class="nav-item slds-p-top_medium">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>MEET</span>
+          </h6>
+        </li>
+        <li class="nav-item slds-p-left_small">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons-outlined" style="color:#505050">video_call</span>
+          <span class="slds-p-left_small">New Meeting</span>
+          </a>
+        </li>
+        <li class="nav-item slds-p-left_small slds-p-bottom_xx-large">
+          <a class="nav-link d-flex align-items-center active" href="#">
+          <span class="material-icons">calendar_today</span>
+          <span class="slds-p-left_small">My Meetings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="slds-p-left_xxx-small" style="width:calc(100% - 250px);">
+    <ul class="nav px-3 pt-10 w-100 bg-white">
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">arrow_back</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a onclick="choice(this)" aria-controls="2">
+        <span class="material-icons-outlined">archive</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">report</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a onclick="choice(this)" aria-controls="2">
+        <span class="material-icons-outlined">delete</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_xx-small slds-p-vertical_x-small">
+        <hr style="width: 1px; height: 25px; background: rgba(100,121,143,0.122); border: none; margin:0;" />
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">mark_email_unread</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">watch_later</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">add_task</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_xx-small slds-p-vertical_x-small">
+        <hr style="width: 1px; height: 25px; background: rgba(100,121,143,0.122); border: none; margin:0;" />
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">folder</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">label</span>
+        </a>
+      </li>
+      <li class="slds-p-horizontal_small slds-p-vertical_x-small">
+        <a href="#">
+        <span class="material-icons-outlined">more_vert</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="list-group list-group-flush d-flex" style="height:100%">
+      {{emails}}
+    </ul>
+  </div>
+</div>

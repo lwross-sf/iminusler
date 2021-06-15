@@ -1,0 +1,2 @@
+﻿userId,userType,emailAddress,sfmcContactKey,attributes,itemAction,catalogType,catalogItemId,price,page,timestamp,viewTime
+Test User,Known,test@upload.com,12345,"{""attributeName"":""attributeValue""}",View Item,Product,12345,38.71,,2021-01-01T00:00,269000

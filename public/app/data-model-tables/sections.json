@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "Standard Data Tables", 
+    "tables": [
+      {"Name": "Accounts", "CustomerKey": "account__c", "Description":"Standard Sales Cloud Account Object", "Customisable": false},
+      {"Name": "Campaigns", "CustomerKey": "campaign__c", "Description": "Standard Sales Cloud Campaign Object", "Customisable": false},
+      {"Name": "Cases", "CustomerKey": "case__c", "Description": "Standard Sales Cloud Case Object", "Customisable": false},
+      {"Name": "Contacts", "CustomerKey": "contact__c", "Description": "Standard Sales Cloud Contact Object", "Customisable": false},
+      {"Name": "Events", "CustomerKey": "event__c", "Description": "Standard Sales Cloud Event Object", "Customisable": false},
+      {"Name": "Leads", "CustomerKey": "lead__c", "Description": "Standard Sales Cloud Lead Object", "Customisable": false},
+      {"Name": "Opportunity", "CustomerKey": "opportunity__c", "Description": "Standard Sales Cloud Opportunity Object", "Customisable": false},
+      {"Name": "Products", "CustomerKey": "product__c", "Description": "Standard Sales Cloud Products Object", "Customisable": true}
+    ]
+  }
+]

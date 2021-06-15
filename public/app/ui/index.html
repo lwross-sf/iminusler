@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (C) 2010-2015 Evergage, Inc.
+  ~ All rights reserved.
+  -->
+
+<html ng-app="evergage" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title
+      ng-bind="$state.current.title ? ($state.current.title + ' - Evergage') : 'Evergage'"
+    >
+      Evergage
+    </title>
+    <meta name="description" content="" />
+    <meta
+      id="viewportMeta"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <link rel="shortcut icon" href="images/icons/favicon.ico" />
+
+    <link
+      rel="chrome-webstore-item"
+      href="https://chrome.google.com/webstore/detail/hfjgfpjcmigilpmndgfecpiokjjgejoi"
+    />
+
+    <!-- Compiled LESS output -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <script type="text/javascript">
+      window.MC = {};
+      window.MC.options = {
+        allowedOrigin: "*",
+        trackActivity: true
+      };
+    </script>
+
+    <script src="thirdparty.min.js"></script>
+    <script src="sources.min.js"></script>
+
+  </head>
+
+  <body
+    ng-cloak
+    class="ng-cloak"
+    ng-class="{ customScrollPage: $state.current.data.customScrollPage === true,
+                  isVisualEditor: $stateParams.isVisualEditor }"
+  >
+    <ng-include src="'app/utils/bootstrapModalTemplates.html'"></ng-include>
+
+    <div
+      id="pageExceptFooter"
+      ng-class="{
+        isEditorPanelView: $stateParams.isEditorPanelView,
+        isVisualEditor: $stateParams.isVisualEditor,
+        messageEditVE: $stateParams.visualEditorMode === 'messageEdit' }"
+    >
+      <div ng-if="$stateParams.isVisualEditor">
+        <legacy-header-bars></legacy-header-bars>
+
+        <div
+          ui-view
+          id="rootContent"
+          ng-class="{ isEditorView: isEditorView() }"
+        ></div>
+      </div>
+
+      <div ng-if="!$stateParams.isVisualEditor">
+        <side-bar-nav is-collapsed="navbarState.collapsed"></side-bar-nav>
+
+        <div
+          id="main-content"
+          class="{{ navbarState.collapsed ? 'nav-collapsed' : '' }} {{
+            localtestToolbarOpen ? 'localtest-toolbar-open' : ''
+          }}"
+        >
+          <main-top-bar></main-top-bar>
+
+          <div
+            ui-view
+            id="rootContent"
+            ng-class="{ isEditorView: isEditorView() }"
+          ></div>
+
+          <!--<localtest-toolbar-tray></localtest-toolbar-tray>-->
+        </div>
+      </div>
+    </div>
+
+    <!-- Used for communication with the Visual Editor -->
+    <div id="dataToSendToApptegicIntegratorDiv"></div>
+    <div id="dataToSendFromApptegicIntegratorDiv"></div>
+    <div id="sendDataToEvergageVisualEditorDiv"></div>
+    <div id="sendDataFromEvergageVisualEditorDiv"></div>
+    <div id="accountNameForVisualEditor"></div>
+    <div id="datasetNameForVisualEditor"></div>
+    <div id="websiteURLForVisualEditor"></div>
+  </body>
+</html>

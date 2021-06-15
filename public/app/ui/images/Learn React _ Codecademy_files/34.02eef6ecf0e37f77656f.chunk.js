@@ -1,0 +1,2 @@
+(window.__LOADABLE_LOADED_CHUNKS__=window.__LOADABLE_LOADED_CHUNKS__||[]).push([[34],{PIZE:function(n,_,o){"use strict";o.d(_,"a",(function(){return showShimmerUI}));var t=o("ydTQ");const r=t.b.NEUTRAL,s=t.b.SUCCESS;function showShimmerUI(n){const _=n.workspaceReady,o=n.workspaceStatusType;return!(!!_||!(!o||o===r||o===s))}}}]);
+//# sourceMappingURL=34.02eef6ecf0e37f77656f.chunk.js.map

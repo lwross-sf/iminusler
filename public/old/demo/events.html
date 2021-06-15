@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Interaction Studio Demo Builder</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="icon" href="/assets/images/logo.svg">
+    <style>
+      .body, html { background-color: #f8f8f8; height: 100%; width:100%}
+      img {border-radius:20px}
+      .notification {
+        animation: fadeIn ease 1s;
+        -webkit-animation: fadeIn ease 1s;
+        -moz-animation: fadeIn ease 1s;
+        -o-animation: fadeIn ease 1s;
+        -ms-animation: fadeIn ease 1s;
+      }
+      @keyframes fadeIn {
+        0% {margin-top:500px;}
+        100% {margin-top:0px;}
+      }
+      .slds-text-heading_medium {
+        font-weight:300;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .field {
+        color:#aeabab; font-weight:400;
+      }
+      .value {
+        color:#462170; font-weight:600;
+      }
+    </style>
+  </head>
+  <body style="background-image: url('/app/images/background.png');background-repeat: no-repeat;">
+    <div class="slds-grid slds-gutters" style="padding-top:125px;">
+      <div class="slds-col slds-size_2-of-3 slds-m-around_large slds-text-heading_medium" id="message">&nbsp;<br/>&nbsp;</div>
+    </div>
+    <div class="slds-grid slds-gutters" style="overflow: auto;" id="options">
+      <div class="slds-col slds-size_1-of-2" id="driving">
+        <a onclick="driving();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/driving.png" class="slds-size_1-of-1" alt="Search Screen" border="0" role="pannel">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-2" id="parking">
+        <a onclick="parking();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/parking-arrival.jpg" class="slds-size_1-of-1" alt="Search Screen" border="0"  style="opacity:0.1;" role="pannel">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-2" id="security">
+        <a onclick="security();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/security.jpg" class="slds-size_1-of-1" alt="Search Results" border="0" style="opacity:0.1;" role="pannel">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-2" id="shopping">
+        <a onclick="shopping();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/shopping.jpg" class="slds-size_1-of-1" alt="Search Results" border="0" style="opacity:0.1;" role="pannel">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-4 slds-hide" id="push-message">
+        <a onclick="advert();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/app.jpg" class="slds-size_1-of-1" alt="Search Results" border="0" role="logo">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-2" id="reiss">
+        <a onclick="reiss();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/reiss.jpg" class="slds-size_1-of-1" alt="Search Results" border="0" style="opacity:0.1;" role="pannel">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-4 slds-hide" id="product">
+        <a onclick="reiss();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/product.png" class="slds-size_1-of-1" alt="Search Results" border="0" role="logo">
+        </a>
+      </div>
+      <div class="slds-col slds-size_1-of-4 slds-hide" id="scanner">
+        <a onclick="#" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+          <img src="/app/images/app-rewards.png" class="slds-size_1-of-1" alt="Search Results" border="0" role="logo">
+        </a>
+      </div>
+    </div>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="evergage-events.js"></script>
+  <script>
+    // on click
+    function driving() {
+      message(0);
+      move('#parking', 500);
+      sendApi(eventLocAirport);
+    }
+    function parking() {
+      message(1);
+      move('#security', 1000);
+      sendApi(eventLocSecurity);
+    }
+    function security() {
+      message(2);
+      $('#push-message').removeClass('slds-hide');
+      $('#push-message').addClass('notification');
+      move('#shopping', 2000);
+      sendApi(eventLocShopping);
+    }
+    function advert() {
+      message(3);
+      move('#reiss', 3000);
+      $('#push-message').addClass('slds-hide');
+      $('#product').removeClass('slds-hide');
+      sendApi(productReiss);
+      sendApi(eventLocShop);
+    }
+
+    function reiss() {
+      message(4);
+      $('#product').addClass('slds-hide');
+      $('#scanner').removeClass('slds-hide');
+      $('#scanner').addClass('notification');
+      move('#reiss', 3000);
+      sendApi(eventRewards);
+    }
+  </script>
+</html>

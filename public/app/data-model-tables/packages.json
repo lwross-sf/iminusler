@@ -1,0 +1,25 @@
+[
+  {
+    "id": "jjjj",
+    "name": "Hotel Data Model",
+    "description": "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+    "badge": "TTH",
+    "icon": "custom-sprite/svg/symbols.svg#custom61",
+    "iconClass": "slds-icon_large",
+    "order": 1,
+    "tables": [
+      {"name": "Accounts", "key": "account__c"},
+      {"name": "Campaigns", "key": "campaign__c"}
+    ]
+  },
+  {
+    "id": "mmm",
+    "name": "Custom Data Model",
+    "description": "Select the data extensions you will to include.",
+    "badge": "Custom",
+    "icon": "utility-sprite/svg/symbols.svg#slider",
+    "iconClass": "",
+    "order": 999,
+    "tables": []
+  }
+]

@@ -1,0 +1,253 @@
+>>>   "itemAction": "Purchase",
+"order": {
+    "Product": {
+        "orderId": "TestOrder002",
+        "totalValue": 9.99,
+        "currency": "GBP",
+        "lineItems": [{"quantity": 1, "_id": "1671", "price":9.99}]
+    }
+}
+
+>>>>   "itemAction": "Update Cart",
+"cart": {
+  "singleLine": {
+    "Product": {
+      "quantity": 1, 
+      "_id": "1671", 
+      "price":9.99
+    }
+  }
+}
+
+
+"brand":[{"_id": "Test003", "type":"t", "name":"Test003"}]
+"tags": [{ "type":"t", "tagType": "Brand", "_id": "Tag002"}]
+
+
+                      <div class="slds-tabs_default slds-p-bottom_small">
+                        <ul class="slds-tabs_default__nav" role="tablist">
+                          <li class="slds-tabs_default__item slds-is-active" title="Category" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item" aria-invalid="0">Category
+                            </a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="ItemClass" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">ItemClass</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Style" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Style</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Brand" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-4" id="tab-default-4__item">Brand</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Gender" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-5" id="tab-default-5__item">Gender</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Badge" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-6" id="tab-default-6__item">Badge</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Keyword" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-7" id="tab-default-7__item">Keyword</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Author" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-8" id="tab-default-8__item">Author</a>
+                          </li>
+                          <li class="slds-tabs_default__item" title="Content Class" role="presentation">
+                            <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-9" id="tab-default-9__item">Content Class</a>
+                          </li>
+                        </ul>
+                        <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Category" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: CATEGORY"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags <abbr class="slds-required" title="required">*</abbr>
+                              </label>
+                              <textarea placeholder="1 tag per row" required="" rows="10" class="slds-textarea" aria-required="true" aria-errormessage="Please provide at least on Metadata Tag for dimension: CATEGORY"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="ItemClass" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: ITEMCLASS"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags <abbr class="slds-required" title="required">*</abbr>
+                              </label>
+                              <textarea placeholder="1 tag per row" required="" rows="10" class="slds-textarea" aria-required="true" aria-errormessage="Please provide at least on Metadata Tag for dimension: ITEMCLASS"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-3__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Style" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: STYLE"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags <abbr class="slds-required" title="required">*</abbr>
+                              </label>
+                              <textarea placeholder="1 tag per row" required="" rows="10" class="slds-textarea" aria-required="true" aria-errormessage="Please provide at least on Metadata Tag for dimension: STYLE"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-4" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-4__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Brand" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: BRAND"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags <abbr class="slds-required" title="required">*</abbr>
+                              </label>
+                              <textarea placeholder="1 tag per row" rows="10" required="" class="slds-textarea" aria-required="true" aria-errormessage="Please provide at least on Metadata Tag for dimension: BRAND"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-5" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-5__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Gender" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: GENDER"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags
+                              </label>
+                              <textarea placeholder="1 tag per row" rows="10" class="slds-textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-6" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-6__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Badge" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: BADGE"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags
+                              </label>
+                              <textarea placeholder="1 tag per row" rows="10" class="slds-textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-7" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-7__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Keyword" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: KEYWORD"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags
+                              </label>
+                              <textarea placeholder="1 tag per row" rows="10" class="slds-textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-8" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-8__item">
+                          <div class="slds-form-element slds-p-bottom_medium">
+                            <label class="slds-form-element__label" for="dim_category_label">
+                              Label <abbr class="slds-required" title="required">*</abbr>
+                            </label>
+                            <div class="slds-form-element__control">
+                              <input type="text" value="Author" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: AUTHOR"/>
+                            </div>
+                          </div>
+                          <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              <label class="slds-form-element__label" for="dim_category_values">
+                                Metadata Tags
+                              </label>
+                              <textarea placeholder="1 tag per row" rows="10" class="slds-textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-default-9" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-9__item">                          
+                          <div class="slds-form-element slds-p-bottom_medium">
+                          <label class="slds-form-element__label" for="dim_category_label">
+                            Label <abbr class="slds-required" title="required">*</abbr>
+                          </label>
+                          <div class="slds-form-element__control">
+                            <input type="text" value="Content Class" required="" class="slds-input" aria-required="true" aria-errormessage="Please provide label for dimension: CONTENT CLASS"/>
+                          </div>
+                        </div>
+                        <div class="slds-form-element">
+                          <div class="slds-form-element__control">
+                            <label class="slds-form-element__label" for="dim_category_values">
+                              Metadata Tags
+                            </label>
+                            <textarea placeholder="1 tag per row" rows="10" class="slds-textarea"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+
+
+// Append data to global array
+function arrayDimensions() {
+  array.dimensions = [
+    {"label":$('#tab-default-1').find('input').val(), "tags":$('#tab-default-1').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-2').find('input').val(), "tags":$('#tab-default-2').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-3').find('input').val(), "tags":$('#tab-default-3').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-4').find('input').val(), "tags":$('#tab-default-4').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-5').find('input').val(), "tags":$('#tab-default-5').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-6').find('input').val(), "tags":$('#tab-default-6').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-7').find('input').val(), "tags":$('#tab-default-7').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-8').find('input').val(), "tags":$('#tab-default-8').find('textarea').val().split(/\r?\n/)},
+    {"label":$('#tab-default-9').find('input').val(), "tags":$('#tab-default-9').find('textarea').val().split(/\r?\n/)}
+  ]
+}
+
+
+
+  var categories = sort([...new Set(data.map(x => x.category))]);
+  var classes = sort([...new Set(data.map(x => x.itemClass))]);
+  var styles = sort([...new Set(data.map(x => x.style))]);
+  var brands = sort([...new Set(data.map(x => x.brand))]);
+  var genders = sort([...new Set(data.map(x => x.gender))]);
+  var badges = sort([...new Set(data.map(x => x.badge))]);
+  var keywords = sort([...new Set(data.map(x => x.keyword))]);
+  var authors = sort([...new Set(data.map(x => x.author))]);
+  var contents = sort([...new Set(data.map(x => x.contentClass))]);
+
+
+
+  #a61a14

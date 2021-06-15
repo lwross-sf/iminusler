@@ -1,0 +1,2 @@
+(window.__LOADABLE_LOADED_CHUNKS__=window.__LOADABLE_LOADED_CHUNKS__||[]).push([[57],{pCWb:function(n,e,_){"use strict";_.d(e,"a",(function(){return registerLanguage}));const registerLanguage=(n,e,_,a)=>{n.languages.register({id:e}),n.languages.setLanguageConfiguration(e,_),n.languages.setMonarchTokensProvider(e,a)}}}]);
+//# sourceMappingURL=57.9b764cc0f578fc76f264.chunk.js.map

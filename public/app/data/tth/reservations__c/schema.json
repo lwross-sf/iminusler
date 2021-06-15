@@ -1,0 +1,16 @@
+{
+  "Name": "Reservations",
+  "CustomerKey": "reservations__c",
+  "Description":"Reservations Object for TTH Data Models",
+  "IsSendable": false,
+  "Fields": {
+    "Field": [
+      {"Name": "TestFieldA", "FieldType": "Text", "MaxLength": "40", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestFieldB", "FieldType": "Text", "MaxLength": "40", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestFieldC", "FieldType": "Decimal", "Precision": "18", "Scale": "2", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestFieldD", "FieldType": "Text", "MaxLength": "40", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestFieldE",  "FieldType": "Text",  "MaxLength": "255",  "IsPrimaryKey": "false",  "IsRequired": "false"}
+    ]
+  },
+  "ModifiedDate": "2021-01-01"
+}

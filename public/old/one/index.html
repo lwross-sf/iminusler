@@ -1,0 +1,774 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo Builder Prototype</title>
+    <meta name="description" content="Demo Builder Prototype">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <style>
+      html {
+        scroll-padding-top: 70px; /* height of sticky header */
+      }
+      body {
+        padding-bottom: 70px;
+      }
+      [role=navigation] {
+        z-index: 100;
+        position: fixed;
+        top:140px;
+        right:50px;
+      }
+      .slds-text-heading_large, .slds-text-heading_medium {
+        font-weight: 700;
+        color: #00396b;
+      }
+      .slds-input {
+        padding: 0.25rem 1rem 0.25rem 0.75rem !important;
+      }
+      .slds-select {
+        height:40px;
+        padding: 0.25rem 1rem 0.25rem 0.75rem !important;
+      }
+      .slds-form-element__label {
+        font-weight:600;
+      }
+      .slds-box {padding:0.5rem;}
+    </style>
+  </head>
+  <body style="background-color:#fafaf9;">
+    <!-- Header -->
+    <header id="page-header" class="slds-global-header_container">
+      <div class="slds-global-header slds-p-vertical_medium" style="height:auto;">
+        <div class="slds-grid slds-grid_align-spread ">
+          <div class="slds-global-header__item min-width">
+            <div class="slds-page-header__col-title">
+              <div class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                  <button id="nav_button" title="Navigation" class="slds-button slds-button_icon">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#rows"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Navigation</span>
+                  </button>
+                </div>
+                <div class="slds-media__body">
+                  <a href="/" title="Home">
+                  <img src="/ui/images/q-central-logo_mini.svg" alt="Q Central" width="98">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slds-global-header__item slds-show_small slds-show">
+            <div class="slds-page-header__col-controls">
+              <div class="slds-page-header__controls">
+                <div class="slds-page-header__control">
+                  <div id="settings_dropdown-trigger" class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                    <button class="slds-button slds-p-vertical_xx-small">
+                      <span class="slds-text-heading_small">Hi, <span class="user_name">Robin</span></span> 
+                      <svg aria-hidden="true" class="slds-button__icon slds-button__icon_medium slds-icon-text-default slds-button__icon_right">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+                      </svg>
+                    </button>
+                    <div class="slds-dropdown slds-dropdown_right slds-dropdown_x-small">
+                      <ul role="menu" aria-label="Settings" class="slds-dropdown__list">
+                        <li role="presentation" class="slds-dropdown__item"><a href="javascript:void(0);" id="replay-onboarding_button" role="menuitem" tabindex="0"><span title="Rewatch Onboarding" class="slds-truncate">Rewatch Onboarding</span></a></li>
+                        <li role="presentation" class="slds-dropdown__item"><a href="javascript:void(0);" id="display-announcements_button" role="menuitem" tabindex="-1"><span title="Display Announcement" class="slds-truncate">Display Announcements</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="onboarding-modal_popover" aria-describedby="onboarding-modal_popover_dialog-body" aria-label="Onboarding Info" role="dialog" class="slds-popover slds-popover_walkthrough slds-popover_feature slds-nubbin_right slds-is-absolute slds-show_medium slds-popover_hide" style="top: 22px; right: 224px;">
+        <button title="Close dialog" class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close slds-button_icon-inverse">
+          <svg aria-hidden="true" class="slds-button__icon">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+          </svg>
+          <span class="slds-assistive-text">Close dialog</span>
+        </button>
+        <div id="onboarding-modal_popover_dialog-body" class="slds-popover__body">
+          <div class="slds-media">
+            <div class="slds-media__body">
+              <p class="slds-text-heading_small">The onboarding tutorial can always be re-run in the settings.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- // Header -->
+    <!-- Alert Message -->
+    <section id="alert_message" class="slds-size_1-of-1" style="margin-top: 3.875rem;">
+      <div class="slds-notify slds-notify_alert slds-theme_alt-inverse" role="alert">
+        <div class="">
+          <h2 class="slds-text-body_regular slds-truncate"><strong>Spring '21 SDO Now Available!</strong></h2>
+          <div class="slds-text-body_small is-markdown">
+            <p>The Spring '21 SDO has just been released, and it's a whopper!  Get the latest, greatest SDO now from Signup. </p>
+          </div>
+        </div>
+        <div class="slds-notify__close">
+          <button id="alert_close_button" class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close">
+            <svg class="slds-button__icon" aria-hidden="true">
+              <use xlink:href="#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- // Alert Message -->
+    <!-- Starter Form -->
+    <section id="starter-form" class="slds-grid slds-grid_align-center slds-size_1-of-1 slds-hide">
+      <div class="slds-col slds-size_1-of-1 slds-grid slds-container_large slds-p-top_large">
+        <div id="toolpicker" class="slds-size_1-of-1 slds-col">
+          <article class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header>
+                <h2 class="slds-text-heading_large slds-m-bottom_x-small">What do you need to build?</h2>
+                <p class="slds-m-vertical_x-small slds-show_medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+              <div class="slds-size_1-of-1 slds-border_top slds-p-top_medium">
+                <fieldset class="slds-form-element">
+                  <legend class="slds-form-element__legend slds-form-element__label slds-m-bottom_x-small">Add the following object(s):</legend>
+                  <div class="slds-form-element__control">
+                    <div class="slds-visual-picker slds-visual-picker_medium slds-p-bottom_medium" style="margin-left:1rem;">
+                      <input type="checkbox" id="build-picker-data" value="build-picker-data" name="options" />
+                      <label for="build-picker-data">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                          <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                              <svg class="slds-icon slds-icon_large slds-icon-action-check" aria-hidden="true">
+                                <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="slds-is-not-selected slds-p-around_small">
+                            <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">data builder</span>
+                          </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                          <span class="slds-text-title">Data Model</span>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="slds-visual-picker slds-visual-picker_medium slds-p-bottom_medium">
+                      <input type="checkbox" id="build-picker-datorama" value="build-picker-datorama" name="options" />
+                      <label for="build-picker-datorama">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                          <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                              <svg class="slds-icon slds-icon_large slds-icon-action-check" aria-hidden="true">
+                                <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="slds-is-not-selected">
+                            <span class="slds-is-not-selected slds-p-around_small">
+                              <img src="https://datorama.com/wp-content/themes/datorama/images/logo-3.png"/>
+                            </span>
+                          </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                          <span class="slds-text-title">Datorama Dashboard</span>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="slds-visual-picker slds-visual-picker_medium slds-p-bottom_medium">
+                      <input type="checkbox" id="build-picker-emails" value="build-picker-emails" name="options" />
+                      <label for="build-picker-emails">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                          <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                              <svg class="slds-icon slds-icon_large slds-icon-action-check" aria-hidden="true">
+                                <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="slds-is-not-selected">
+                            <span class="slds-is-not-selected slds-p-around_small">
+                              <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">content builder</span>
+                            </span>
+                          </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                          <span class="slds-text-title">Emails</span>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="slds-visual-picker slds-visual-picker_medium slds-p-bottom_medium">
+                      <input type="checkbox" id="build-picker-is" value="build-picker-is" name="options" />
+                      <label for="build-picker-is">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                          <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                              <svg class="slds-icon slds-icon_large slds-icon-action-check" aria-hidden="true">
+                                <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="slds-is-not-selected slds-p-around_small">
+                            <img src="https://interactionstudio.evergage.com/ui/images/logo_on_white.svg" width="100%" alt="Salesforce" border="0" role="logo">
+                          </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                          <span class="slds-text-title">Interaction Studio</span>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="slds-visual-picker slds-visual-picker_medium slds-p-bottom_medium">
+                      <input type="checkbox" id="build-picker-journeys" value="build-picker-journeys" name="options" />
+                      <label for="build-picker-journeys">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                          <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                              <svg class="slds-icon slds-icon_large slds-icon-action-check" aria-hidden="true">
+                                <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="slds-is-not-selected">
+                            <span class="slds-is-not-selected slds-p-around_small">
+                              <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">journey builder</span>
+                            </span>
+                          </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                          <span class="slds-text-title">Journeys</span>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="slds-visual-picker slds-visual-picker_medium slds-p-bottom_medium">
+                      <input type="checkbox" id="build-picker-lp" value="build-picker-lp" name="options" />
+                      <label for="build-picker-lp">
+                        <span class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                          <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                              <svg class="slds-icon slds-icon_large slds-icon-action-check" aria-hidden="true">
+                                <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="slds-is-not-selected">
+                            <span class="slds-is-not-selected slds-p-around_small">
+                              <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">cloud pages</span>
+                            </span>
+                          </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                          <span class="slds-text-title">Landing Pages</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="slds-size_1-of-1 slds-text-align_right">
+                <button class="slds-button slds-button_brand">Submit</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- Starter Form -->
+    <!-- Builder Form -->
+    <section id="builder-form" class="slds-grid slds-grid_align-center slds-size_1-of-1">
+      <div class="slds-col slds-size_1-of-1 slds-grid slds-gutters slds-container_x-large slds-p-top_large">
+        <div class=" slds-col slds-size_1-of-1 slds-medium-size_4-of-5">
+          <!-- Company Details -->
+          <article id="company-details" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Company Details</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('company-details')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="company-details">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Please provide some details around the Account and Opportunity associated with the prospect, this is so we can help synchronize across other tools.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_brand-name">Brand Name</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" id="input_brand-name" placeholder="e.g. Northern Trail Outfitters" class="slds-input" value="Northern Trail Outfitters"/>
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_account-id">Account Id</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" id="input_account-id" placeholder="Org62 Account ID" class="slds-input" />
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_opportunity-id">Opportunity Id</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" id="input_opportunity-id" placeholder="Org62 Opportunity ID" class="slds-input" />
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_vertical">Vertical</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-select_container">
+                        <select class="slds-select" id="input_vertical">
+                          <option value="">Select…</option>
+                          <option>Option One</option>
+                          <option>Option Two</option>
+                          <option>Option Three</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_sub-vertical">Sub Vertical</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-select_container">
+                        <select class="slds-select" id="input_sub-vertical">
+                          <option value="">Select…</option>
+                          <option>Option One</option>
+                          <option>Option Two</option>
+                          <option>Option Three</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Company Details -->
+          <!-- Brand Settings -->
+          <article id="brand-settings" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Brand Settings</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('brand-settings')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="brand-settings">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Add the company logo and colors so that we can style each of the dashboard pages to their look and feel. If there is an Opportunity associated with the prospect, please add that as well so we can help synchronize across other tools.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_brand-logo">Brand Logo</label>
+                    <div class="slds-form-element__control">
+                      <input type="file" id="input_brand-logo" class="slds-input" value="" style="line-height: normal; padding: 0.5rem 1rem 0.5rem 0.75rem;" accept=".jpg,.png" aria-required="true" aria-controls="brandLogoDisplay">
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <div class="slds-size_1-of-1 slds-box slds-theme_shade slds-align_absolute-center" style="height:70px;">
+                      <img id="brandLogoDisplay" class="slds-size_1-of-1" src="https://datorama-demo-uploads.s3.amazonaws.com/demo-builder/1597236867.png" style="max-height:60px; width:auto;">
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <label class="slds-form-element__label" for="input_brand-logo">Brand Icon</label>
+                    <div class="slds-form-element__control">
+                      <input type="file" id="ucp-catalog" class="slds-input" value="" style="line-height: normal; padding: 0.5rem 1rem 0.5rem 0.75rem;" accept=".jpg,.png" aria-required="true" aria-controls="brandIconDisplay">
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-p-bottom_medium">
+                    <div class="slds-size_1-of-1 slds-box slds-theme_shade slds-align_absolute-center" style="height:70px;">
+                      <img id="brandIconDisplay" class="slds-size_1-of-1" src="https://pbs.twimg.com/profile_images/714436902993182720/Ke_2DvpI_400x400.jpg" style="max-height:60px; width:auto;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct slds-p-top_medium">
+                <div class="slds-text-heading_small"><strong>Email Colors</strong></div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-p-top_xx-small slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_email-color-01">Primary A</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_email-color-01" class="slds-input" placeholder="#hex color" value="#2B6CB0"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_email-color-02">Primary B</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_email-color-02" class="slds-input" placeholder="#hex color" value="#63B3ED"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_email-color-03">Gray A</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_email-color-03" class="slds-input" placeholder="#hex color" value="#4A5568"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_email-color-04">Gray B</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_email-color-04" class="slds-input" placeholder="#hex color" value="#A0AEC0"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_email-color-05">Tertiary</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_email-color-05" class="slds-input" placeholder="#hex color " value="#48BB78"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct slds-p-top_large">
+                <div class="slds-text-heading_small"><strong>Web Colors</strong></div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-p-top_xx-small slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_color-01">Primary A</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_color-01" class="slds-input" placeholder="#hex color" value="#2B6CB0"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_color-02">Primary B</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_color-02" class="slds-input" placeholder="#hex color" value="#63B3ED"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_color-03">Gray A</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_color-03" class="slds-input" placeholder="#hex color" value="#4A5568"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_color-04">Gray B</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_color-04" class="slds-input" placeholder="#hex color" value="#A0AEC0"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-5 slds-p-horizontal_small">
+                  <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input_color-05">Tertiary</label>
+                    <div class="slds-form-element__control">
+                      <input type="text" role="color-picker" id="input_color-05" class="slds-input" placeholder="#hex color " value="#48BB78"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Brand Settings -->
+          <!-- Product Catalog Settings -->
+          <article id="product-catalog" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Product Catalog</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('product-catalog')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="product-catalog">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Need help building a catalog? Watch <strong>this video</strong> to learn how to scrape a website catalog from any website using Webscraper.IO.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Product Catalog Settings -->
+          <!-- Data & Sources -->
+          <article id="data-settings" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Data & Sources</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('data-settings')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="data-settings">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Select the data model you wish to use and any additional markeing sources that will appear.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Data & Sources -->
+          <!-- Terminology -->
+          <article id="terminology-settings" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Terminology</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('terminology-settings')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="terminology-settings">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">What business terms do they use? Override the dimensions and metrics below by replacing the field values, or feel free to leave them as-is. Please see this dashboard page to see where these terms will appear. If you need to, delete the text in any field to see its original value.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Terminology -->
+          <!-- Dimensions -->
+          <article id="dimension-settings" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Dimensions</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('dimension-settings')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="dimension-settings">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Customize the values that you would like to see for each of the dimensions listed above.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Dimensions -->
+          <!-- KPIs & Metrics -->
+          <article id="metrics-settings" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">KPIs & Metrics</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('metrics-settings')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="metrics-settings">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Customize measurement properties in terms of scale. For magnitude, enter an example value for that particular metric. For percentages, please type their decimal format (e.g. enter 0.025 to represent 2.5%).</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // KPIs & Metrics -->
+          <!-- Creative Examples -->
+          <article id="creative-examples" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Creative Examples</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('creative-examples')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="creative-examples">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Add a couple creatives (e.g. social media image or email creative) so we can embed those in the dashboard.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Creative Examples -->
+          <!-- Datorama Features -->
+          <article id="datorama-features" class="slds-card slds-size_1-of-1 slds-p-around_medium">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_medium slds-m-bottom_x-small">Datorama Features</h2>
+                </div>
+                <div class="slds-no-flex">
+                  <button title="Expand/Collapse" class="slds-button slds-button_icon" onclick="toggleCard('datorama-features')">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Expand/Collapse</span>
+                  </button>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="datorama-features">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Additional settings and Datorama features that can be integrated into your demo.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  LEFT COLUMN
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-horizontal_small">
+                  RIGHT COLUMN
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Datorama Features -->
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-5" role="navigation">
+          <!-- Navigation -->
+          <article class="slds-card slds-size_1-of-1">
+            <div class="slds-card__body slds-card__body_inner">
+              <nav class="slds-nav-vertical" aria-label="Sub page">
+                <div class="slds-nav-vertical__section">
+                  <h2 id="entity-header" class="slds-nav-vertical__title">Build Steps</h2>
+                  <ul aria-describedby="entity-header">
+                    <li class="slds-nav-vertical__item slds-is-active">
+                      <a href="#company-details" class="slds-nav-vertical__action">Company Details</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#brand-settings" class="slds-nav-vertical__action">Brand Settings</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#product-catalog" class="slds-nav-vertical__action"> Product Catalog</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#data-settings" class="slds-nav-vertical__action">Data & Sources</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#terminology-settings" class="slds-nav-vertical__action">Terminology</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#dimension-settings" class="slds-nav-vertical__action">Dimensions</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#metrics-settings" class="slds-nav-vertical__action">KPIs & Metrics</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#creative-examples" class="slds-nav-vertical__action">Creative Examples</a>
+                    </li>
+                    <li class="slds-nav-vertical__item">
+                      <a href="#datorama-features" class="slds-nav-vertical__action">Datorama Features</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </article>
+          <!-- // Navigation -->
+        </div>
+      </div>
+    </section>
+    <!-- // Builder Form -->
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="index.js"></script>
+</html>

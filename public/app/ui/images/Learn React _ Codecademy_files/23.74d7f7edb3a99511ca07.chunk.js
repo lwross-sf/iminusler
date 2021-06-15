@@ -1,0 +1,2 @@
+(window.__LOADABLE_LOADED_CHUNKS__=window.__LOADABLE_LOADED_CHUNKS__||[]).push([[23],{NkHZ:function(t,e,n){"use strict";n.d(e,"a",(function(){return DeferredRender}));var c=n("ODXe"),_=n("q1tI"),a=n.n(_);const DeferredRender=({children:t,fallback:e})=>{const n=Object(_.useState)(!1),u=Object(c.a)(n,2),r=u[0],l=u[1];return Object(_.useEffect)((()=>{l(!0)}),[]),a.a.createElement(a.a.Fragment,null,r?t:e||null)}}}]);
+//# sourceMappingURL=23.74d7f7edb3a99511ca07.chunk.js.map

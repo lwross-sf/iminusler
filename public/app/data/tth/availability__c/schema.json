@@ -1,0 +1,18 @@
+{
+  "Name": "Availability",
+  "CustomerKey": "availability__c",
+  "Description":"Availability Object for TTH Data Models",
+  "IsSendable": false,
+  "Fields": {
+    "Field": [
+      {"Name": "TestField1TestField1TestField1", "FieldType": "Text", "MaxLength": "40", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestField2", "FieldType": "Date",  "IsPrimaryKey": "false",  "IsRequired": "false"},
+      {"Name": "TestField3", "FieldType": "Decimal", "Precision": "18", "Scale": "2", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestField4", "FieldType": "EmailAddress", "MaxLength": "40", "IsPrimaryKey": "false", "IsRequired": "false"},
+      {"Name": "TestField5",  "FieldType": "Number",  "IsPrimaryKey": "false",  "IsRequired": "false"},
+      {"Name": "TestField5",  "FieldType": "Phone",  "IsPrimaryKey": "false",  "IsRequired": "false"},
+      {"Name": "TestField7",  "FieldType": "Boolean",  "IsPrimaryKey": "false",  "IsRequired": "false",  "DefaultValue": "False"}
+    ]
+  },
+  "ModifiedDate": "2021-01-01"
+}

@@ -1,0 +1,790 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Interaction Studio Demo Builder</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="stylesheet" type="text/css" href="/ui/styles/common.css" />
+    <style>
+      .body, html { background-color: #f8f8f8; height: 100%;}
+      header[role="global-header"] {background-color: white; border-bottom: 5px solid #e98300;}
+      div[role="navigation"] {background:white; height:100%;}
+      .slds-page-header__title {font-size: 1.25rem;}
+      .slds-brand-band:before {background-repeat: repeat;}
+      .slds-brand-band.slds-brand-band_large:before {height: 100%;}
+      .slds-brand-band.slds-brand-band_large:after {display:none;}
+      .slds-table_resizable-cols thead th {padding:0.5rem 0;}
+      .slds-page-header__detail-block {padding-right: 0rem;}
+      .slds-notify_container {top:50px;}
+      .slds-checkbox-button {width: 6rem;}
+      #mainNavigation { height: 100vh; max-width:200px; background-color: #003459; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; }
+      #mainNavigation a:hover {color:rgba(255, 255, 255, 0.75) !important;}
+      .slds-tabs_default__item {width: 110px; text-align:center; text-decoration:none !important;}
+      .slds-tabs_default__item:nth-child(-n+2) {width: 120px; text-align:center; text-decoration:none !important;}
+      .slds-tabs_default__item:last-of-type {width: 140px;}
+      .slds-tabs_default__link[tabindex="0"]:focus{text-decoration:none !important;}
+      .slds-card__body .slds-text-title {font-size: 0.875rem !important;}
+      .slds-slider-label__label {font-weight: 600;}
+      #mainNavigation svg { vertical-align: top !important; }
+      .slds-icon-action-close {background-color: #c23934}
+    </style>
+  </head>
+  <body class="slds-brand-band slds-brand-band_large">
+    <!-- Header -->
+    <header class="slds-grid slds-wrap slds-p-horizontal_medium slds-p-vertical_small" role="global-header">
+      <a href="/" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+        <img src="/assets/images/logo.svg" width="50" alt="Salesforce" border="0" role="logo">
+        <span style="color:#1AA0DB;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;data</span>
+        <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">builder&nbsp;</span>
+      </a>
+    </header>
+    <main class="slds-grid slds-wrap" style="background-color: #f8f8f8; height: 100%;">
+      <!-- sidebar nav -->
+      <nav id="mainNavigation" class="slds-size_1-of-4 slds-medium-size_1-of-6 slds-large-size_1-of-8">
+        <a href="/interactionstudio" class="slds-text-align_center slds-m-top_large" style="text-decoration:none;">
+          <span style="color:#fff;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;interaction</span>
+          <span style="color:#fff;font-size:22px;font-weight:400;letter-spacing:-0.05em;">studio&nbsp;</span>
+        </a>
+        <ul class="slds-p-bottom_medium">
+          <li class="slds-text-align_center slds-p-bottom_x-large slds-text-color_inverse">
+            <a href="/interactionstudio" class="slds-button slds-text-color_inverse">
+              <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#back"></use>
+              </svg>Back
+            </a>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="https://salesforce.quip.com/AKfvAelTZswr" target="_blank">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">User Guide</span>
+              </span>
+            </a>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="https://forms.gle/NWxtrYQbd11Vxt4GA" target="_blank">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#comments"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">Feedback</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // sidebar nav -->
+      <!-- main content -->
+      <div class="slds-size_3-of-4 slds-medium-size_5-of-6 slds-large-size_7-of-8 slds-p-around_medium" id="mainContainer" style="position:relative;">
+        <div class="slds-container_x-large slds-container_center slds-p-top_medium slds-p-horizontal_large">
+          <!-- Breadcrumbs -->
+          <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_medium">
+            <nav role="navigation" aria-label="Breadcrumbs">
+              <ol class="slds-breadcrumb slds-list--horizontal">
+                <li class="slds-breadcrumb__item slds-text-title--caps">Welcome to <strong>Interaction Studio Catalog Builder</strong></li>
+              </ol>
+            </nav>
+          </div>
+          <!-- /Breadcrumbs -->
+          <!-- Section 1 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow" id="introduction" aria-level="1" aria-controls="introduction">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-top_small slds-p-horizontal_large">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__header slds-grid">
+                  <div class="slds-size_1-of-1" role="progressbar" aria-level="1"></div>
+                </div>
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_xx-large slds-m-bottom_small slds-text-align_center">Welcome to <strong>Interaction Studio Data Builder</strong></h2>
+                    <div class="slds-grid slds-size_1-of-1 slds-wrap slds-grid_align-center">
+                      <div class="slds-size_1-of-1 slds-text-align_center slds-text-heading_medium slds-p-bottom_xx-large">Add a catalog and simulate Interaction Studio event data for your next customer demo</div>
+                      <div class="slds-size_2-of-3 slds-text-longform" style="font-size:14px;">
+                        <p><strong>Before getting started, make sure you:</strong></p>
+                        <ul>
+                          <li>Are using a new Interaction Studio dataset</li>
+                          <li>Have created the relevant Dimensions within your demo dataset</li>
+                          <li>Have mapped the Dimensions against the relevant catalog type within your demo dataset</li>
+                          <li>Have downloaded the Product Catalog template and guide from <a href="https://solutionscentral.io/" target="_blank">Solutions Central</a></li>
+                        </ul>
+                      </div>
+                      <div class="slds-size_1-of-1 slds-text-align_right slds-p-top_xx-large">
+                        <button onclick="showHide('products', 'introduction')" class="slds-button slds-button--brand slds-float_right">Let's get started!</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Section 1 -->
+          <!-- Section 2 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow slds-hide" id="products" aria-level="2" aria-controls="products" aria-invalid="0">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-top_small slds-p-horizontal_large">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__header slds-grid">
+                  <div class="slds-size_1-of-1" role="progressbar" aria-level="2"></div>
+                </div>
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_large slds-m-bottom_small slds-text-align_center">Import your <strong>Product Catalog</strong></h2>
+                    <div class="slds-size_1-of-1 slds-text-align_center slds-text-title slds-p-bottom_xx-large">
+                      <strong>Need help building a catalog?</strong> Watch the video below to learn how to scrape a website catalog from any website using&nbsp;<a href="https://chrome.google.com/webstore/detail/web-scraper/jnhgnonknehpejjnehehllkliplmbmhn" target="_blank" rel="noopener noreferrer">Webscraper.IO</a>.
+                    </div>
+                    <div class="slds-grid slds-size_1-of-1 slds-wrap">
+                      <div class="slds-grid slds-size_1-of-1 slds-p-bottom_x-large ">
+                        <div class="slds-size_1-of-2 slds-p-right_medium">
+                          <div class="slds-size_1-of-1">
+                            <iframe title="Create a custom catalog" class="vidyard_iframe video__iframe___fIEIh" src="//play.vidyard.com/5Acs6QiWwhqoFBnQUNA7pe.html?v=3.1.1" width="90%" height="300" scrolling="no" frameborder="0" allowfullscreen=""></iframe>
+                          </div>
+                        </div>
+                        <div class="slds-size_1-of-2 slds-border_left slds-p-left_medium">
+                          <div class="slds-text-align_left">
+                            <div class="slds-form-element slds-m-bottom--small">
+                              <label class="slds-form-element__label" for="ucp-account">
+                                <abbr class="slds-required" title="required">*</abbr>Account
+                              </label>
+                              <div class="slds-form-element__control">
+                                <input id="ucp-account" class="slds-input" placeholder="lross123456.australia-1" value="" aria-required="true">
+                              </div>
+                              <div class="slds-form-element__help slds-hide">
+                                Please provide the subdomain of your Interaction Studio Learning Account
+                              </div>
+                            </div>
+                            <div class="slds-form-element slds-m-bottom--small ">
+                              <label class="slds-form-element__label" for="ucp-dataset">
+                                <abbr class="slds-required" title="required">*</abbr>Dataset
+                              </label>
+                              <div class="slds-form-element__control">
+                                <input id="ucp-dataset" class="slds-input" placeholder="dataset name..." value="" aria-required="true">
+                              </div>
+                              <div class="slds-form-element__help slds-hide">
+                                Please provide the name of the Interaction Studio Dataset
+                              </div>
+                            </div>
+                            <div class="slds-form-element slds-m-bottom--small ">
+                              <label class="slds-form-element__label" for="ucp-dataset-vertical">Vertical</label>
+                              <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                  <select class="slds-select" id="ucp-dataset-vertical">
+                                    <option value="0" disabled="">Select One...</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Media">Media</option>
+                                    <option value="FinServ">FinServ</option>
+                                    <option value="HLS">HLS</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slds-form-element slds-m-bottom--small slds-hide">
+                              <label class="slds-form-element__label" for="ucp-catalog-type"><abbr class="slds-required" title="required">*</abbr>Catalog Type</label>
+                              <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                  <select class="slds-select" id="ucp-catalog-type" aria-required="true" aria-errormessage="Please select a Catalog Type">
+                                    <option value="0" disabled="">Select One...</option>
+                                    <option value="Product" selected>Product</option>
+                                    <option value="Content" disabled>Content</option>
+                                    <option value="Banner" disabled>Banner</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="slds-form-element slds-m-bottom_small ">
+                              <label class="slds-form-element__label" for="ucp-catalog">
+                                <abbr class="slds-required" title="required">*</abbr>Catalog File&nbsp;
+                              </label>
+                              <div class="slds-form-element__control">
+                                <input type="file" id="ucp-catalog" class="slds-input" value="" style="line-height: normal; padding: 0.5rem 1rem 0.5rem 0.75rem;" accept=".csv" aria-required="true">
+                              </div>
+                              <div class="slds-form-element__help slds-hide">
+                                No Product Catalog data was uploaded
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-p-top_small">
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                      <button onclick="showHide('introduction', 'products')" class="slds-button slds-button_text-destructive">back</button>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                      <button onclick="validateCatalog()" class="slds-button slds-button_brand">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Section 2 -->
+          <!-- Section 3 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow slds-hide" id="dimensions" aria-level="3" aria-controls="dimensions" aria-invalid="0">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-top_small slds-p-horizontal_large">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__header slds-grid">
+                  <div class="slds-size_1-of-1" role="progressbar" aria-level="3"></div>
+                </div>
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_large slds-m-bottom_small slds-text-align_center">
+                      Validating your <strong>Product Catalog</strong>
+                    </h2>
+                    <div class="slds-grid slds-grid_align-center slds-size_1-of-1 slds-wrap">
+                      <div class="slds-size_1-of-1 slds-text-align_center slds-text-title slds-p-bottom_large">
+                        For the best results, your product catalog should include a range of products covering at least <strong>3 different primary categories</strong>. <br/>
+                        Items shown with a <strong style="color:#c23934">red cross</strong> are urgent and should be fixed before continuing.
+                      </div>
+                      <ol class="slds-setup-assistant slds-size_1-of-1 slds-large-size_3-of-4 slds-p-bottom_xx-large">
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="fields-valid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-description" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">No missing fields</h3>
+                                      <p>File contains all required fields for product details and all required dimensions.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse"></div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="product-count-valid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-description" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small"># Product Rows</h3>
+                                      <p>Loader has identified that you have provided more than the minimum number of required products.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse"></div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="category-count-valid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-description" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small"># Categories</h3>
+                                      <p>Loader has identified that you have provided more than the minimum number of required category options.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse"></div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <!-- invalid options -->
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="product-fields-invalid-count">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-close" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#reject"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">Unexpected Product Catalog fields</h3>
+                                      <p>Uploaded catalog must contain <strong>only</strong> the 22 fields that appear in the product template file (nothing past column V).</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                  <a href="/interactionstudio#help" target="_blank">See Help Guide</a>
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="product-fields-invalid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-close" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#reject"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">Missing Product Catalog fields</h3>
+                                      <p>Uploaded catalog must contain <strong>all</strong> of the required product catalog fields: '_id', 'name', 'url', 'imageUrl', 'price',	'listPrice', 'rating' &amp; 'numRatings'.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                  <a href="/interactionstudio#help" target="_blank">See Help Guide</a>
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="dimension-fields-invalid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-close" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#reject"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">Missing Dimension fields</h3>
+                                      <p>Uploaded catalog must contain <strong>all</strong> of dimension fields required for the Affinity Wheel: 'category', 'itemClass', 'style' &amp; 'brand'.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                  <a href="/interactionstudio#help" target="_blank">See Help Guide</a>
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="product-count-invalid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-close" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#reject"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">Insufficient Number of Products</h3>
+                                      <p>Loader has identified that your catalog does <strong>NOT</strong> contain the minimum <strong>15</strong> required products. You can continue to upload the data but you should consider adding more products and categories for better personalisation results.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                  <a href="/interactionstudio#help" target="_blank">See Help Guide</a>
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="category-count-invalid">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure slds-align_absolute-center">
+                                  <span class="slds-icon_container slds-icon_container_circle slds-icon-action-script" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                      <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#priority"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Description of icon when needed</span>
+                                  </span>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">Insufficient Number of Categories</h3>
+                                      <p>Loader has identified that your catalog does <strong>NOT</strong> contain the minimum <strong>3</strong> required category options. You can continue to upload the data but you should consider adding products from more categories for better personalisation results.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                  <a href="/interactionstudio#help" target="_blank">See Help Guide</a>
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                      </ol>                      
+                    </div>
+                  </div>
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-p-top_small">
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                      <button onclick="showHide('products', 'dimensions')" class="slds-button slds-button_text-destructive">Back</button>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                      <button onclick="validateCategories()" class="slds-button slds-button_brand">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Section 3 -->
+          <!-- Section 4 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow slds-hide" id="heroes" aria-level="4" aria-controls="heroes" aria-invalid="0">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-top_small slds-p-horizontal_large">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__header slds-grid">
+                  <div class="slds-size_1-of-1" role="progressbar" aria-level="4"></div>
+                </div>
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_x-large slds-m-bottom_large slds-text-align_center">Build your <strong>Hero User(s)</strong></strong></h2>
+                    <div class="slds-size_1-of-1 slds-text-align_center slds-text-title slds-p-bottom_xx-large">
+                      Use the form below to specify 'Hero' users who will feature in your demo and their <strong>primary</strong> product interest.<br/>
+                      A matching anonymous profile will also be created and both profiles can be enriched later using the <a href="/interactionstudio/actions" target="_blank"><strong>Actions Builder</strong></a>
+                    </div>
+                    <div class="slds-grid slds-size_1-of-1 slds-wrap">
+                      <div class="slds-grid slds-size_1-of-1 slds-p-bottom_x-large ">
+                        <div class="slds-expression slds-size_1-of-1">
+                          <ul class="slds-size_1-of-1">
+                            <li class="slds-expression__row slds-size_1-of-1">
+                              <fieldset>
+                                <div class="slds-grid slds-gutters_xx-small">
+                                  <div class="slds-col slds-size_1-of-3">
+                                    <div class="slds-form-element">
+                                      <label class="slds-form-element__label" for="heroEmail"><abbr class="slds-required" title="required">*</abbr>Email Address</label>
+                                      <div class="slds-form-element__control">
+                                        <input type="text" id="heroEmail" class="slds-input" aria-required="true"/>
+                                      </div>
+                                      <div class="slds-form-element__help slds-hide">
+                                        Email address is required
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-size_2-of-3">
+                                    <div class="slds-form-element">
+                                      <label class="slds-form-element__label" for="heroProduct"><abbr class="slds-required" title="required">*</abbr>Hero Product</label>
+                                      <div class="slds-form-element__control">
+                                        <div class="slds-select_container">
+                                          <select class="slds-select" role="product-list" aria-required="true">
+                                            <option value="0" disabled="">Select One...</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="slds-form-element__help slds-hide">
+                                        Please select a valid product from the catalog
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-grow-none">
+                                    <div class="slds-form-element">
+                                      <span class="slds-form-element__label">&nbsp;</span>
+                                      <div class="slds-form-element__control">
+                                        <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Condition 1" disabled>
+                                          <svg class="slds-button__icon" aria-hidden="true">
+                                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                                          </svg>
+                                          <span class="slds-assistive-text">Delete Condition 1</span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </li>
+                          </ul>
+                          <template id="heroTemplate">
+                            <li class="slds-expression__row slds-size_1-of-1">
+                              <fieldset>
+                                <div class="slds-grid slds-gutters_xx-small">
+                                  <div class="slds-col slds-size_1-of-3">
+                                    <div class="slds-form-element">
+                                      <label class="slds-form-element__label" for="heroEmailAdd"><abbr class="slds-required" title="required">*</abbr>Email Address</label>
+                                      <div class="slds-form-element__control">
+                                        <input type="text" id="heroEmailAdd" class="slds-input" aria-required="true"/>
+                                      </div>
+                                      <div class="slds-form-element__help slds-hide">
+                                        Email address is required
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-size_2-of-3">
+                                    <div class="slds-form-element">
+                                      <label class="slds-form-element__label" for="heroProductAdd"><abbr class="slds-required" title="required">*</abbr>Hero Product</label>
+                                      <div class="slds-form-element__control">
+                                        <div class="slds-select_container">
+                                          <select class="slds-select" role="product-list" aria-required="true">
+                                            <option value="0" disabled="">Select One...</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="slds-form-element__help slds-hide">
+                                        Please select a valid product from the catalog
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="slds-col slds-grow-none">
+                                    <div class="slds-form-element">
+                                      <span class="slds-form-element__label">&nbsp;</span>
+                                      <div class="slds-form-element__control">
+                                        <button onclick="deleteHero(this)" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Condition 1">
+                                          <svg class="slds-button__icon" aria-hidden="true">
+                                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                                          </svg>
+                                          <span class="slds-assistive-text">Delete Condition 1</span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </li>
+                          </template>
+                          <div class="slds-expression__buttons">
+                            <button onclick="addHero()" class="slds-button slds-button_neutral">
+                              <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
+                              </svg>Add Hero User</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-p-top_small">
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                      <button onclick="showHide('dimensions', 'heroes')" class="slds-button slds-button_text-destructive">back</button>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                      <button onclick="validateHeroes()" class="slds-button slds-button_brand">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Section 4 -->
+          <!-- Section 5 -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow slds-hide" id="events" aria-level="5" aria-controls="events">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-top_small slds-p-horizontal_large">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__header slds-grid">
+                  <div class="slds-size_1-of-1" role="progressbar" aria-level="5"></div>
+                </div>
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_x-large slds-m-bottom_large slds-text-align_center">Interaction <strong>Event Settings</strong></strong></h2>
+                    <div class="slds-size_1-of-1 slds-text-align_center slds-text-title slds-p-bottom_large">
+                      These settings will determine the number and types of events that are created in you Interaction Studio dataset.<br/>
+                      <strong>Note:</strong> The more users selected the longer it will take for the data to upload.
+
+                    </div>
+                    <div class="slds-grid slds-size_1-of-1 slds-wrap slds-container_center slds-grid_align-center slds-p-bottom_x-large">
+                      <div class="slds-size_2-of-3">
+                        <div class="slds-form-element">
+                          <label class="slds-form-element__label" for="numberOfUsers"><span class="slds-slider-label"><span class="slds-slider-label__label">Number of Additional Users</span><span class="slds-slider-label__range">0 - 100</span></span></label>
+                          <div class="slds-form-element__control">
+                            <div class="slds-slider"><input type="range" id="numberOfUsers" class="slds-slider__range" min="0" max="100" step="1" value="25"><span class="slds-slider__value" aria-hidden="true">25</span></div>
+                          </div>
+                        </div>
+                        <div class="slds-form-element slds-p-top_small">
+                          <label class="slds-form-element__label" for="knownUserRate"><span class="slds-slider-label"><span class="slds-slider-label__label">Known User %</span><span class="slds-slider-label__range">1 - 100</span></span></label>
+                          <div class="slds-form-element__control">
+                            <div class="slds-slider"><input type="range" id="knownUserRate" class="slds-slider__range" min="1" max="100" step="5" value="40"><span class="slds-slider__value" aria-hidden="true">40</span></div>
+                          </div>
+                        </div>
+                        <div class="slds-form-element slds-p-top_small">
+                          <label class="slds-form-element__label" for="cartRate"><span class="slds-slider-label"><span class="slds-slider-label__label">Cart Rate %</span><span class="slds-slider-label__range">11 - 25</span></span></label>
+                          <div class="slds-form-element__control">
+                            <div class="slds-slider"><input type="range" id="cartRate" class="slds-slider__range" min="11" max="25" step="1" value="15"><span class="slds-slider__value" aria-hidden="true">15</span></div>
+                          </div>
+                        </div>
+                        <div class="slds-form-element slds-p-top_small">
+                          <label class="slds-form-element__label" for="purchaseRate"><span class="slds-slider-label"><span class="slds-slider-label__label">Purchase Rate %</span><span class="slds-slider-label__range">1 - 10</span></span></label>
+                          <div class="slds-form-element__control">
+                            <div class="slds-slider"><input type="range" id="purchaseRate" class="slds-slider__range" min="1" max="10" step="1" value="4"><span class="slds-slider__value" aria-hidden="true">4</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-p-top_small">
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                      <button onclick="showHide('heroes', 'events')" class="slds-button slds-button_text-destructive">back</button>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                      <button onclick="formSubmit()" class="slds-button slds-button_brand">Run my code!</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Section 5 -->
+          <!-- Results -->
+          <div class="slds-card-wrapper slds-m-vertical_small slds-grow slds-grow slds-hide" aria-level="6" aria-controls="results" id="results">
+            <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-top_small slds-p-horizontal_large">
+              <article class="slds-card slds-size_1-of-1">
+                <div class="slds-card__header slds-grid">
+                  <div class="slds-size_1-of-1" role="progressbar" aria-level="6"></div>
+                </div>
+                <div class="slds-card__body">
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-container_x-large slds-container_center slds-grid_vertical-align-center slds-p-horizontal_small">
+                    <h2 class="slds-size_1-of-1 slds-text-heading_large slds-m-top_x-large slds-m-bottom_large slds-text-align_center slds-hide">Status... <strong>Finished</strong></h2>
+                    <div class="slds-size_1-of-1 slds-large-size_3-of-4 slds-text-align_center slds-text-title slds-p-bottom_large" role="results">
+                      <ol class="slds-setup-assistant">
+                        <li class="slds-setup-assistant__item slds-p-bottom_medium" aria-label="results-catalog">
+                          <div class="demo-only demo--inverse" style="height:6rem;position:relative">
+                            <div class="slds-spinner_container">
+                              <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="results-heroes">
+                          <div class="demo-only demo--inverse" style="height:6rem;position:relative">
+                            <div class="slds-spinner_container">
+                              <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="results-users">
+                          <div class="demo-only demo--inverse" style="height:6rem;position:relative">
+                            <div class="slds-spinner_container">
+                              <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="slds-setup-assistant__item slds-p-vertical_medium" aria-label="results-events">
+                          <div class="demo-only demo--inverse" style="height:6rem;position:relative">
+                            <div class="slds-spinner_container">
+                              <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <template id="taskComplete">
+                          <article class="slds-setup-assistant__step">
+                            <div class="slds-setup-assistant__step-summary">
+                              <div class="slds-media">
+                                <div class="slds-media__figure">
+                                  <div class="slds-progress-ring slds-progress-ring_complete slds-progress-ring_large">
+                                    <div class="slds-progress-ring__content">
+                                      <span class="slds-icon_container slds-icon-utility-check" title="Complete">
+                                        <svg class="slds-icon" aria-hidden="true">
+                                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Complete</span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="slds-media__body slds-m-top_x-small">
+                                  <div class="slds-media">
+                                    <div class="slds-setup-assistant__step-summary-content slds-media__body slds-text-align_left">
+                                      <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">{{title}}</h3>
+                                      <p>{{message}}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </article>                     
+                        </template>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="slds-grid slds-wrap slds-grid_align-center slds-p-top_small">
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">&nbsp;</div>
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                      <a href="/interactionstudio/actions" class="slds-button slds-button_brand">
+                        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#magicwand"></use>
+                        </svg>Add Additional Actions
+                      </a>
+                      <a href="/interactionstudio" class="slds-button slds-button_success slds-text-color_inverse">
+                        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+                        </svg>Finish
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- // Results -->
+        </div>
+      </div>
+      <!-- main content -->
+    </main>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-data-tables.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-menus.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-progress-indicator.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-select.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-setup-assistant.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-slider.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-tabs.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-toast.min.js"></script>
+  <script src="/app/scripts/jquery.csv.js"></script>
+  <script src="index.js"></script>
+  <script>
+    // onload
+    $('div[role="progressbar"]').each(function(index) {
+      $(this).html(progress(5, index));
+    });
+  </script>
+</html>

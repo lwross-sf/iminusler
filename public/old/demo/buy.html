@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Interaction Studio Demo Builder</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="icon" href="/assets/images/logo.svg">
+    <style>
+      .body, html { background-color: #f8f8f8; height: 100%;}
+    </style>
+  </head>
+  <body>
+    <div class="slds-size_1-of-1" id="search">
+      <a onclick="myFunction();" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+        <img src="/app/images/search.png" class="slds-size_1-of-1" alt="Search Screen" border="0" role="logo">
+      </a>
+    </div>
+    <div class="slds-size_1-of-1 slds-hide" id="search-results">
+      <a href="/" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+        <img src="/assets/images/logo.svg" class="slds-size_1-of-1" alt="Search Results" border="0" role="logo">
+      </a>
+    </div>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="evergage-events.js"></script>
+  <script>
+    sendApi(eventBookParking);
+    sendApi(eventBookLounge);
+  </script>
+</html>

@@ -1,0 +1,310 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo Tools | Marketing Cloud</title>
+    <meta name="description" content="Marketing Cloud Demo Tools">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <style>
+      .topic_title {
+        font-weight: 700;
+        color: #00396b;
+      }
+      #navigation_panel {
+        z-index: 99;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF8W7Q60XZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HF8W7Q60XZ');
+    </script>
+  </head>
+  <body style="background-color:#fafaf9;">
+    <!-- Header -->
+    <header id="page-header" class="slds-global-header_container">
+      <div class="slds-global-header slds-p-vertical_medium" style="height:auto;">
+        <div class="slds-grid slds-grid_align-spread ">
+          <div class="slds-global-header__item min-width">
+            <div class="slds-page-header__col-title">
+              <div class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                  <button onclick="toggleNav()" id="nav_button" title="Navigation" class="slds-button slds-button_icon">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#rows"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Navigation</span>
+                  </button>
+                </div>
+                <div class="slds-media__body">
+                  <a href="/" title="Home">
+                  <img src="/app/ui/images/q-central-logo_mini.svg" alt="Q Central" width="98">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slds-global-header__item slds-show_small slds-show">
+            <div class="slds-page-header__col-controls">
+              <div class="slds-page-header__controls">
+                <div class="slds-page-header__control">
+                  <!----> 
+                  <div id="settings_dropdown-trigger" class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                    <button class="slds-button slds-p-vertical_xx-small">
+                      <span class="slds-text-heading_small">Hi, <span class="user_name">SE Trailblazer</span></span> 
+                      <svg aria-hidden="true" class="slds-button__icon slds-button__icon_medium slds-icon-text-default slds-button__icon_right">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+                      </svg>
+                    </button>
+                    <div class="slds-dropdown slds-dropdown_right slds-dropdown_x-small">
+                      <ul role="menu" aria-label="Settings" class="slds-dropdown__list">
+                        <li role="presentation" class="slds-dropdown__item"><a href="javascript:void(0);" id="replay-onboarding_button" role="menuitem" tabindex="0"><span title="Rewatch Onboarding" class="slds-truncate">Rewatch Onboarding</span></a></li>
+                        <li role="presentation" class="slds-dropdown__item"><a href="javascript:void(0);" id="display-announcements_button" role="menuitem" tabindex="-1"><span title="Display Announcement" class="slds-truncate">Display Announcements</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="onboarding-modal_popover" aria-describedby="onboarding-modal_popover_dialog-body" aria-label="Onboarding Info" role="dialog" class="slds-popover slds-popover_walkthrough slds-popover_feature slds-nubbin_right slds-is-absolute slds-show_medium slds-popover_hide" style="top: 22px; right: 224px;">
+        <button title="Close dialog" class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close slds-button_icon-inverse">
+          <svg aria-hidden="true" class="slds-button__icon">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+          </svg>
+          <span class="slds-assistive-text">Close dialog</span>
+        </button>
+        <div id="onboarding-modal_popover_dialog-body" class="slds-popover__body">
+          <div class="slds-media">
+            <div class="slds-media__body">
+              <p class="slds-text-heading_small">The onboarding tutorial can always be re-run in the settings.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <div id="page-wrapper" class="slds-col slds-grid slds-grid_align-center" style="width: 100vw;">
+      <div id="content-wrapper" class="slds-col slds-grid slds-container_x-large">
+        <div class="slds-grid slds-wrap slds-grid_align-center slds-p-vertical_large slds-p-horizontal_medium slds-is-relative slds-container_fluid">
+          <div class="slds-size_1-of-1 slds-container_large slds-grid slds-grid_vertical slds-m-bottom_large">
+            <div class="slds-size_1-of-1 slds-col">
+              <a href="https://solutionscentral.io/posts/50690ee0-a740-11eb-b869-67c51a21a90b" target="_blank">
+                <img src="/app/ui/images/homepage_banner.png" alt="The new Interaction Studio Demo Builder is here!">
+              </a>
+            </div>
+          </div>
+          <!-- INTERACTION STUDIO TOOLS -->
+          <article class="slds-card slds-size_1-of-1 slds-p-vertical_medium slds-p-horizontal_large slds-container_large">
+            <div class="slds-card__header slds-grid slds-border_bottom slds-p-bottom_medium slds-p-horizontal_none">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body show-pointer">
+                  <h2 class="topic_title slds-text-heading_medium slds-m-bottom_x-small">Interaction Studio Tools</h2>
+                  <p class="slds-m-top_x-small slds-show_medium">
+                    A range of tools to make it quick and easy for Solution Engineers to build rich catalogs, user profiles and recipes in your Interaction Studio Learning Account.
+                  </p>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner slds-p-horizontal_none slds-p-vertical_xx-small slds-grid slds-wrap slds-gutters_small">
+              <!-- Catalog Builder-->
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-m-bottom_medium slds-grid slds-wrap slds-grid_vertical-stretch">
+                <article class="slds-card slds-card_boundary slds-size_1-of-1 slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                  <div class="slds-card__header">
+                    <header class="slds-media slds-media_center">
+                      <div class="slds-media__figure">
+                        <span title="Catalog Builder" class="slds-icon_container slds-icon-standard-all">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_small">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#catalog"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Catalog Builder</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                          <a href="/interactionstudio/catalog-builder/" title="Catalog Editor" target="_blank" class="slds-card__header-link"><span >Catalog Builder</span></a>
+                        </h2>
+                      </div>
+                      <div class="slds-no-flex">
+                        <span class="slds-badge slds-badge_inverse">1</span>
+                      </div>
+                    </header>
+                  </div>
+                  <div class="slds-card__body_inner slds-nowrap slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                    <p class="slds-nowrap slds-text-color_weak">Create all your catalogs for your Interaction Studio dataset.</p>
+                    <div class="slds-media slds-media_small slds-media_center slds-m-top_x-small">
+                      <div class="slds-media__figure">
+                        <span title="link" class="slds-icon_container slds-icon-doctype-link">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_x-small">
+                            <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#link"></use>
+                          </svg>
+                          <span class="slds-assistive-text">link</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body slds-p-top_xx-small">
+                        <a href="https://solutionscentral.io/posts/f83edda0-8b31-11eb-ac78-03780198cad8/" target="_blank">Guide to uploading a custom catalog</a></div>
+                    </div>
+                  </div>
+                  <footer class="slds-card__footer slds-text-align_left">
+                    <a href="/interactionstudio/catalog-builder" target="_blank" class="slds-button slds-button_brand">
+                      Build Custom Dataset
+                    </a>
+                  </footer>
+                </article>
+              </div>
+              <!-- Catalog Builder-->
+              <!-- Dummy User Generator -->
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-m-bottom_medium slds-grid slds-wrap slds-grid_vertical-stretch">
+                <article class="slds-card slds-card_boundary slds-size_1-of-1 slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                  <div class="slds-card__header">
+                    <header class="slds-media slds-media_center">
+                      <div class="slds-media__figure">
+                        <span title="Dummy User Generator" class="slds-icon_container slds-icon-standard-all">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_small">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#bot"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Dummy User Generator</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body">
+                        <h2 class="slds-card__header-title"><a href="/interactionstudio/data-cannon" title="Dummy User Generator" target="_blank" class="slds-card__header-link"><span>Dummy User Generator</span></a></h2>
+                      </div>
+                      <div class="slds-no-flex">
+                        <span class="slds-badge slds-badge_inverse">2</span>
+                      </div>
+                    </header>
+                  </div>
+                  <div class="slds-card__body_inner slds-nowrap slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                    <p class="slds-nowrap slds-text-color_weak">Create background users and events for your Interaction Studio dataset.</p>
+                    <div class="slds-media slds-media_small slds-media_center slds-m-top_x-small">
+                      <div class="slds-media__figure">
+                        <span title="link" class="slds-icon_container slds-icon-doctype-link">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_x-small">
+                            <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#link"></use>
+                          </svg>
+                          <span class="slds-assistive-text">link</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body slds-p-top_xx-small">
+                        <a href="https://solutionscentral.io/posts/596b4190-a1c6-11eb-9c6d-cb1c78a3c4ed/" target="_blank">Guide to filling your user dataset</a>
+                      </div>
+                    </div>
+                  </div>
+                  <footer class="slds-card__footer slds-text-align_left">
+                    <a href="/interactionstudio/data-cannon" target="_blank" class="slds-button slds-button_brand">
+                      Create Random Users
+                    </a>
+                  </footer>
+                </article>
+              </div>
+              <!-- // Dummy User Generator -->
+              <!-- Hero Builder -->
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-m-bottom_medium slds-grid slds-wrap slds-grid_vertical-stretch">
+                <article class="slds-card slds-card_boundary slds-size_1-of-1 slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                  <div class="slds-card__header">
+                    <header class="slds-media slds-media_center">
+                      <div class="slds-media__figure">
+                        <span title="Hero Builder" class="slds-icon_container slds-icon-standard-all">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_small">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#customer_360"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Hero Builder</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body">
+                        <h2 class="slds-card__header-title"><a href="/interactionstudio/hero-builder" title="Hero Builder" target="_blank" class="slds-card__header-link"><span>Hero Builder</span></a></h2>
+                      </div>
+                      <div class="slds-no-flex">
+                        <span class="slds-badge slds-badge_inverse">3</span>
+                      </div>
+                    </header>
+                  </div>
+                  <div class="slds-card__body_inner slds-nowrap slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                    <p class="slds-nowrap slds-text-color_weak">Create user and events for your Interaction Studio dataset.</p>
+                    <div class="slds-media slds-media_small slds-media_center slds-m-top_x-small">
+                      <div class="slds-media__figure">
+                        <span title="link" class="slds-icon_container slds-icon-doctype-link">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_x-small">
+                            <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#link"></use>
+                          </svg>
+                          <span class="slds-assistive-text">link</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body slds-p-top_xx-small">
+                        <a href="https://solutionscentral.io/posts/9c634c50-a6ca-11eb-a5a7-932440590f52" target="_blank">Guide to creating user profiles</a>
+                      </div>
+                    </div>
+                  </div>
+                  <footer class="slds-card__footer slds-text-align_left">
+                    <a href="/interactionstudio/hero-builder" target="_blank" class="slds-button slds-button_brand">
+                      Build Hero Profiles
+                    </a>
+                  </footer>
+                </article>
+              </div>
+              <!-- // Hero Builder -->
+              <!-- Events Builder-->
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-m-bottom_medium slds-grid slds-wrap slds-grid_vertical-stretch">
+                <article class="slds-card slds-card_boundary slds-size_1-of-1 slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                  <div class="slds-card__header">
+                    <header class="slds-media slds-media_center">
+                      <div class="slds-media__figure">
+                        <span title="UCP Builder (Pro)" class="slds-icon_container slds-icon-standard-all">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_small">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#employee_job"></use>
+                          </svg>
+                          <span class="slds-assistive-text">UCP Builder (Pro)</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                          <a href="https://sf-is-demobuilder.herokuapp.com/" title="Events Editor" target="_blank" class="slds-card__header-link"><span >UCP Builder</span></a></h2>
+                      </div>
+                      <div class="slds-no-flex">
+                        <span class="slds-badge slds-theme_warning">PRO</span>
+                      </div>
+                    </header>
+                  </div>
+                  <div class="slds-card__body_inner slds-nowrap slds-grid slds-grid_vertical slds-grid_vertical-stretch">
+                    <p class="slds-nowrap slds-text-color_weak">An alternative version of the Hero Builder tools for advanced use cases.</p>
+                    <div class="slds-media slds-media_small slds-media_center slds-m-top_x-small">
+                      <div class="slds-media__figure">
+                        <span title="link" class="slds-icon_container slds-icon-doctype-link">
+                          <svg aria-hidden="true" class="slds-icon slds-icon_x-small">
+                            <use xlink:href="/assets/icons/doctype-sprite/svg/symbols.svg#link"></use>
+                          </svg>
+                          <span class="slds-assistive-text">link</span>
+                        </span>
+                      </div>
+                      <div class="slds-media__body slds-p-top_xx-small">
+                        <a href="https://solutionscentral.io/posts/3e24c990-4584-11eb-8bbf-39a0a8edb846/new-interaction-studio-demo-builder/" target="_blank">
+                          Guide to using the advanced UCP feature 
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <footer class="slds-card__footer slds-text-align_left">
+                    <a href="https://sf-is-demobuilder.herokuapp.com/" target="_blank" class="slds-button slds-button_brand">
+                     Build Custom Profiles
+                    </a>
+                  </footer>
+                </article>
+              </div>
+              <!-- Events Builder-->
+            </div>
+          </article>
+          <!-- // INTERACTION STUDIO TOOLS -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/app/scripts/navigation.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF8W7Q60XZ"></script>
+</html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo Experience</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/app/ui/styles/inbox.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">   
+    <style>
+      body, html { background-color: #f8f8f8; height: 100%;}
+      header[role="global-header"] {background-color: white; border-bottom: 5px solid #e98300;}
+      .slds-brand-band.slds-brand-band_large {z-index:0;}
+      .slds-brand-band.slds-brand-band_large:before {height: 100%;}
+      .slds-brand-band.slds-brand-band_large:after {display:none;}
+      .slds-brand-band:before {background-repeat:repeat;}
+      main {height: 100vh;}
+      div[role="guide"] {border-right: 3px solid #1AA0DB; height: 100vh;}
+      div[role="result"] {background-color: #f4f6f9; height: 100vh;}
+      .slds-text-heading_large {color:#195594}
+      .slds-button {font-size:15px; padding:4px 16px;}
+      .nav-link {color:#202124}
+      .material-icons {color:#505050;}
+      .material-icons-outlined {color: rgba(68, 68, 68, 1);}
+    </style>
+  </head>
+  <body>
+    <header class="slds-grid slds-wrap slds-p-horizontal_medium slds-p-vertical_small" role="global-header">
+      <div class="slds-col slds-size_1-of-2">
+        <img src="/assets/images/logo.svg" width="50" alt="Salesforce" border="0" role="logo">
+      </div>
+      <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+        <span style="color:#1AA0DB;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;demo</span>
+        <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">experience&nbsp;</span>
+      </div>
+    </header>
+    <main class="slds-grid slds-wrap">
+      <div id="guide" class="slds-size_2-of-7 slds-p-around_small slds-brand-band slds-brand-band_large" role="presentation"></div>
+      <div id="userView" class="slds-size_5-of-7 slds-grid slds-wrap" role="presentation"></div>
+    </main>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/app/scripts/jquery-ui.js"></script>
+  <script src="index.js"></script>
+  <script src="story.js"></script>
+  <script>
+    renderGuide(config[0].guide);
+  </script>
+</html>

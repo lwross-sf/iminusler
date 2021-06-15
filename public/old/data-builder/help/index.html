@@ -1,0 +1,291 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Data Model Builder</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="stylesheet" type="text/css" href="/ui/styles/common.css" />
+    <style>
+      .body, html { background-color: #f8f8f8; height: 100%;}
+      header[role="global-header"] {background-color: white; border-bottom: 5px solid #e98300;}
+      div[role="navigation"] {background:white; height:100%;}
+      .slds-page-header__title {font-size: 1.25rem;}
+      .slds-brand-band:before {background-repeat: repeat;}
+      .slds-brand-band.slds-brand-band_large:before {height: 100%;}
+      .slds-brand-band.slds-brand-band_large:after {display:none;}
+      .slds-table_resizable-cols thead th {padding:0.5rem 0;}
+      .slds-page-header__detail-block {padding-right: 0rem;}
+      .slds-spinner_container {top:65px;}
+      .slds-notify_container {top:50px;}
+      .slds-progress {margin: 0 !important; float:right;}
+      .slds-checkbox-button {width: 6rem;}
+      main nav { height: 100vmax; background-color: #003459; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; }
+      main nav a:hover {color:rgba(255, 255, 255, 0.75) !important;}
+      .slds-carousel__content {height: 9rem;}
+      .slds-tabs_scoped__nav {background-color:rgb(243, 242, 242); }
+      .slds-tabs_scoped__link{font-size:14px; padding-left:24px; padding-right:24px;}
+      .slds-einstein-header {background-color: #B4DAFC; text-shadow:none;}
+      .slds-carousel__panel button {font-size:14px;}
+      .slds-input {padding:0 0.5rem;}
+    </style>
+  </head>
+  <body class="slds-brand-band slds-brand-band_large">
+    <!-- Header -->
+    <header class="slds-grid slds-wrap slds-p-horizontal_medium slds-p-vertical_small" role="global-header">
+      <a href="/" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+        <img src="/assets/images/logo.svg" width="50" alt="Salesforce" border="0" role="logo">
+        <span style="color:#1AA0DB;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;data</span>
+        <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">builder&nbsp;</span>
+      </a>
+    </header>
+    <main class="slds-grid slds-wrap" style="background-color: #f8f8f8; height: 100%;">
+      <!-- sidebar nav -->
+      <nav id="mainNavigation" class="slds-size_1-of-4 slds-medium-size_1-of-6 slds-large-size_1-of-8">
+        <a href="/marketingcloud" class="slds-text-align_center slds-m-top_large" style="text-decoration:none;">
+          <span style="color:#fff;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;data</span>
+          <span style="color:#fff;font-size:22px;font-weight:400;letter-spacing:-0.05em;">models&nbsp;</span>
+        </a>
+        <ul class="slds-p-bottom_medium">
+          <li class="slds-text-align_center slds-p-bottom_x-large slds-text-color_inverse">
+            <strong>Version 1.0</strong>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="/marketingcloud/help/">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">Help</span>
+              </span>
+            </a>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="https://forms.gle/NWxtrYQbd11Vxt4GA" target="_blank">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#comments"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">Feedback</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // sidebar nav -->
+      
+      <div class="slds-size_3-of-4 slds-medium-size_5-of-6 slds-large-size_7-of-8 slds-p-around_medium" id="mainContainer">
+        <h2 class="slds-size_1-of-1 slds-text-heading_large slds-p-top_medium slds-p-bottom_x-large slds-text-align_left">
+          Welcome to <strong>Data Model Builder</strong>
+        </h2>
+        <div id="help" class="slds-grid slds-wrap slds-gutters">
+          <div class="slds-col slds-size_1-of-1">
+            <div class="slds-tabs_scoped">
+              <ul class="slds-tabs_scoped__nav" role="tablist">
+                <li class="slds-tabs_scoped__item slds-is-active" title="Help Guides" role="presentation">
+                  <a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1" id="tab-scoped-1__item">Help Guides</a>
+                </li>
+                <li class="slds-tabs_scoped__item" title="Release Notes" role="presentation">
+                  <a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2" id="tab-scoped-2__item">Release Notes</a>
+                </li>
+                <li class="slds-tabs_scoped__item" title="Contributors" role="presentation">
+                  <a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3" id="tab-scoped-3__item">Contributors</a>
+                </li>
+              </ul>
+              <div id="tab-scoped-1" class="slds-tabs_scoped__content slds-p-around_x-large slds-show" role="tabpanel" aria-labelledby="tab-scoped-1__item">
+                <div class="slds-summary-detail slds-is-open">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title"><strong>How To Get Your Account</strong></h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <p>If you're using Interaction Studio directly via the URL, and NOT in your MC LA, then the Account will be the subdomain of the URL. E.g. if the URL is https://interactionstudio.evergage.com, then you would enter <b>interactionstudio</b> in the Account field.</p>
+                      <p class="slds-p-top_small">
+                        If you're using Interaction Studio via your MC LA, then you can find your Account by opening up 
+                        Chrome DevTools -&gt; Network Tab, then go to Interaction Studio in your MC LA. As the page loads, 
+                        click on <b>ui/</b> in the left hand side, and the <b>Request URL</b> will contain the actual 
+                        URL being used for Interaction Studio. You then enter the sub-domain of the URL. E.g. if the URL
+                        is https://ccharalambous1477350.australia-3.evergage.com then you would enter 
+                        <b>ccharalambous1477350.australia-3</b> in the Account field.
+                        <br><br>Click <a href="images/account-help-screenshot.png" target="_blank">here</a> for an example.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-summary-detail slds-p-top_xx-large">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title">
+                        <strong>Issues With "View Time" in Actions Builder</strong> &emsp;
+                      </h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <p>Any "View Time" on a product MUST be paired with a "View Item" on the same product, otherwise Interaction Studio won't show anything for the "View Time" on its own.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-summary-detail slds-p-top_xx-large">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title">
+                        <strong>Insufficient Number of Categories</strong> &emsp;
+                      </h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <p>To build realistic customer profiles the tool tries to group users into a preferred category interest. If not enough categories are provided it results in all the created profiles being too similiar and this can lead to a poor demo experience. Try to upload at least 3 categories all with five products or more.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-summary-detail slds-p-top_xx-large">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title">
+                        <strong>Insufficient Number of Products</strong> &emsp;
+                      </h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <p>
+                        The tool is designed to create a different customer profiles as possible. 
+                        If not enough products are provided it results in all the recipes being too similiar and this can lead to a poor demo experience. 
+                        Try to upload at least 3 categories all with five products or more.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-summary-detail slds-p-top_xx-large">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title">
+                        <strong>Missing Dimension or Product Catalog fields</strong> &emsp;
+                      </h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <p>This error results because you have edited the field structure of the template file. The structure should not be changed and the following fields all need to be populated:</p>
+                      <div class="slds-text-longform slds-p-vertical_small">
+                        <ul>
+                          <li><strong>_id</strong> (string) - The unique identifier of the item such as a product id or SKU</li>
+                          <li><strong>name</strong> (string) - Name of the product</li>
+                          <li><strong>url</strong> (string) - Link to this item</li>
+                          <li><strong>imageUrl</strong> (string) - Fully qualified url for the image representing this item</li>
+                          <li><strong>price</strong> (decimal) - Current price of the item e.g. 9.99</li>
+                          <li><strong>listPrice</strong> (decimal) - Alternative list price e.g. MSRP for comparison or to illustrate discount e.g. 11.99</li>
+                          <li><strong>rating</strong> (decimal) - The average rating score for reviews on this item e.g. 4.5</li>
+                          <li><strong>numRatings</strong> (number) - The count of reviews on this item</li>
+                          <li><strong>category</strong> - Tag to be applied to the Category Dimension</li>
+                          <li><strong>itemClass</strong> - Tag(s) to be applied to the Item Class Dimension (use ';' for multiple values)</li>
+                          <li><strong>style</strong> - Tag(s) to be applied to the Style Dimension (use ';' for multiple values)</li>
+                          <li><strong>brand</strong> - Tag(s) to be applied to the Brand Class Dimension (use ';' for multiple values)</li>
+                        </ul>
+                      </div>
+                      <p>For more details see the Product Catalog Guide on <a href="https://solutionscentral.io/" target="_blank">Solutions Central</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-scoped-2" class="slds-tabs_scoped__content slds-p-around_x-large slds-hide" role="tabpanel" aria-labelledby="tab-scoped-2__item">
+                <div class="slds-summary-detail slds-is-open">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title"><strong>Version 1.3</strong></h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <ul style="list-style: unset; padding-left: 20px;">
+                        <li>Lauch of the Product Catalog Builder Tool</li>
+                        <li>Ability to upload product catalog</li>
+                        <li>Updated User Interface leveraging Salesforce Lightning Design System</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-summary-detail slds-p-top_xx-large">
+                  <button class="slds-button slds-button_icon slds-m-right_x-small" title="Toggle details" aria-controls="expando-unique-id" aria-expanded="true">
+                    <svg class="slds-button__icon slds-summary-detail__action-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Toggle details</span>
+                  </button>
+                  <div>
+                    <div class="slds-summary-detail__title">
+                      <h3 class="slds-text-heading_small slds-truncate" title="summary title"><strong>Version 1.2</strong></h3>
+                    </div>
+                    <div aria-hidden="false" class="slds-summary-detail__content" id="expando-unique-id">
+                      <ul style="list-style: unset; padding-left: 20px;">
+                        <li>New User Interface leveraging Salesforce Lightning Design System</li>
+                        <li>Ability to enter custom Account in the Demo Environment section</li>
+                        <li>Demo Environment inputs are remembered after submitting</li>
+                        <li>User Actions support Category views</li>
+                        <li>Ability to Duplicate Row in User Actions</li>
+                        <li>Ability to set the Datetime of each User Action</li>
+                        <li>Form validation highlighting erroneous fields with error messages</li>
+                        <li>Loading animation after clicking Submit button, and success message when
+                            complete</li>
+                        <li>Hints for input values</li>
+                        <li>Custom actions leveraging the Event API</li>
+                        <li>Ability to set Attribute values as part of a Custom Action</li>
+                        <li>Support for multiple items in a single Purchase, by having them share the same Datetime</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-scoped-3" class="slds-tabs_scoped__content slds-p-around_x-large slds-hide" role="tabpanel" aria-labelledby="tab-scoped-3__item">
+                <strong>Chris Charalambous</strong><br/>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <br/><br/>
+                <strong>Robin Mead</strong><br/>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <br/><br/>
+                <strong>Lachlan Ross</strong><br/>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- main content -->
+    </main>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-scoped-tabs.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-summary-detail.min.js"></script>
+</html>

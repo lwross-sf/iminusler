@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Data Model Builder</title>
+    <meta name="description" content="Interaction Studio Demo Builder">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <link rel="stylesheet" type="text/css" href="/ui/styles/common.css" />
+    <style>
+      .body, html { background-color: #f8f8f8; height: 100%;}
+      header[role="global-header"] {background-color: white; border-bottom: 5px solid #e98300;}
+      .slds-table_resizable-cols thead th {padding:0.5rem 0;}
+      .slds-page-header__detail-block {padding-right: 0rem;}
+      .slds-spinner_container {top:65px;}
+      .slds-notify_container {top:50px;}
+      .slds-progress {margin: 0 !important; float:right;}
+      #main-navigation { height: 100vmax; background-color: #003459; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; }
+      #main-navigation {color:rgba(255, 255, 255, 0.75) !important;}
+      .slds-carousel__content {height: 9rem;}
+      .slds-tabs_scoped__nav {background-color:rgb(243, 242, 242); }
+      .slds-tabs_scoped__link{font-size:14px; padding-left:24px; padding-right:24px;}
+      .slds-einstein-header {background-color: #B4DAFC; text-shadow:none;}
+      .slds-carousel__panel button {font-size:14px;}
+      .slds-input {padding:0 0.5rem;}
+      .slds-modal__container {max-width: 100% !important; padding: 0.5rem 0; justify-content: normal;}
+    </style>
+  </head>
+  <body class="slds-brand-band slds-brand-band_large">
+    <!-- Header -->
+    <header class="slds-grid slds-wrap slds-p-horizontal_medium slds-p-vertical_small" role="global-header">
+      <a href="/" class="slds-col slds-size_1-of-1" style="text-decoration:none;">
+        <img src="/assets/images/logo.svg" width="50" alt="Salesforce" border="0" role="logo">
+        <span style="color:#1AA0DB;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;data</span>
+        <span style="color:#1C315F;font-size:22px;font-weight:400;letter-spacing:-0.05em;">builder&nbsp;</span>
+      </a>
+    </header>
+    <main class="slds-grid slds-wrap" style="background-color: #f8f8f8; height: 100%;">
+      <!-- sidebar nav -->
+      <nav id="main-navigation" class="slds-size_1-of-4 slds-medium-size_1-of-6 slds-large-size_1-of-8">
+        <a href="/marketingcloud" class="slds-text-align_center slds-m-top_large" style="text-decoration:none;">
+          <span style="color:#fff;font-size:22px;font-weight:300;letter-spacing:-0.05em;">&nbsp;data</span>
+          <span style="color:#fff;font-size:22px;font-weight:400;letter-spacing:-0.05em;">models&nbsp;</span>
+        </a>
+        <ul class="slds-p-bottom_medium">
+          <li class="slds-text-align_center slds-p-bottom_x-large slds-text-color_inverse">
+            <strong>Version 1.0</strong>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="/marketingcloud/help/">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#knowledge_base"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">Help</span>
+              </span>
+            </a>
+          </li>
+          <li class="slds-p-horizontal_large slds-p-vertical_x-small">
+            <a class="slds-text-color_inverse" href="https://forms.gle/NWxtrYQbd11Vxt4GA" target="_blank">
+              <span class="slds-icon_container">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#comments"></use>
+                </svg>
+                <span class="nav-link-text slds-m-left_small">Feedback</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // sidebar nav -->
+      
+      <div class="slds-size_3-of-4 slds-medium-size_5-of-6 slds-large-size_7-of-8 slds-p-around_medium">
+        <!-- Breadcrumbs -->
+        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_medium">
+          <div class="slds-size_2-of-3">
+            <nav role="navigation" aria-label="Breadcrumbs">
+              <ol class="slds-breadcrumb slds-list--horizontal">
+                <li class="slds-breadcrumb__item slds-text-title--caps">Welcome to <strong>MC Data Model Builder</strong></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="slds-size_1-of-3">
+            <div id="timer"></div>
+          </div>
+        </div>
+        <!--// Breadcrumbs -->
+        <!-- enviroment settings -->
+        <article class="slds-card" id="account-settings" aria-invalid="0">
+          <div class="slds-card__header slds-grid slds-hide">
+            <div class="slds-size_1-of-1 slds-p-top_large slds-align_absolute-center" role="progressbar" aria-level="1"></div>
+          </div>
+          <div class="slds-card__body slds-card__body_inner slds-m-around_none slds-p-around_none">
+            <div class="slds-welcome-mat slds-size_1-of-1">
+              <div class="slds-welcome-mat__content slds-grid" style="min-height:35rem;">
+                <div class="slds-welcome-mat__info slds-size_1-of-2">
+                  <div class="slds-welcome-mat__info-content">
+                    <h2 class="slds-welcome-mat__info-title slds-p-top_medium" style="margin-bottom:0.5rem;">
+                      <span style="font-weight: 400; letter-spacing: -0.05em;color: #1C315F;">Welcome</span>
+                    </h2>
+                    <div class="slds-welcome-mat__info-description slds-text-longform"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p></div>
+                    <div class="slds-welcome-mat__info-progress"><p><strong>0/5 stages completed</strong></p></div>
+                    <div class="slds-progress-bar slds-progress-bar_circular" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" >
+                      <span class="slds-progress-bar__value" style="width:0%">
+                        <span class="slds-assistive-text">Progress: 0%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-2 slds-p-horizontal_large slds-p-vertical_xx-large" aria-label="lifecycle-stages" style="margin:auto;">
+                  <h2 class="slds-size_1-of-1 slds-text-heading_medium slds-m-vertical_small slds-text-align_left" style="font-weight:500;">Your Account Settings</h2>
+                  <div class="slds-grid slds-size_1-of-1 slds-wrap">
+                    <div class="slds-form-element slds-size_1-of-1 slds-p-bottom_small">
+                      <label class="slds-form-element__label" for="ucp-client-id">
+                        <strong>Client ID</strong>
+                        <abbr class="slds-required" title="required">* </abbr>
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input type="text" id="ucp-client-id" placeholder="e.g. e5z9e9o6e1xipxo07so9g" class="slds-input">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">Client ID is required</div>
+                    </div>
+                    <div class="slds-form-element slds-size_1-of-1 slds-p-bottom_small">
+                      <label class="slds-form-element__label" for="ucp-client-secret">
+                        <strong>Client Secret</strong>
+                        <abbr class="slds-required" title="required">* </abbr>
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input type="text" id="ucp-client-secret" placeholder="e.g. c48i2t6hdkaY5RcfwxtIHdPx" class="slds-input" required="">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">Client Secret is required</div>
+                    </div>
+                    <div class="slds-form-element slds-size_1-of-1 slds-p-bottom_small">
+                      <label class="slds-form-element__label" for="ucp-mid">
+                        <strong>MID</strong>
+                        <abbr class="slds-required" title="required">* </abbr>
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input type="text" id="ucp-mid" placeholder="e.g. 123456" class="slds-input">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">Account ID is required</div>
+                    </div>
+                    <div class="slds-form-element slds-size_1-of-1 slds-p-bottom_medium">
+                      <label class="slds-form-element__label" for="ucp-mc-subdomain">
+                        <strong>MC Subdomain</strong>
+                        <abbr class="slds-required" title="required">* </abbr>
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input type="text" id="ucp-mc-subdomain" placeholder="e.g. mcl-t30txnmvd03b9sy2pyhps4" class="slds-input">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">API Subdomain is required</div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element slds-size_1-of-1 slds-text-align_right slds-is-absolute" style="right:24px; bottom:32px">
+                    <button onclick="updateAccount()" class="slds-button slds-button_brand slds-p-vertical_xxx-small">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!--// enviroment settings -->
+        <!-- Data Model Selection -->
+        <article class="slds-card slds-size_1-of-1 slds-hide" id="data-models">
+          <div class="slds-card__header slds-grid">
+            <div class="slds-size_1-of-1 slds-p-top_large slds-align_absolute-center" role="progressbar" aria-level="1"></div>
+          </div>
+          <div class="slds-card__body">
+            <div class="slds-grid slds-wrap slds-text-align_center slds-p-top_x-large">
+              <h2 class="slds-size_1-of-1 slds-text-heading_large slds-p-bottom_x-small">
+                Select your <strong>Data Model</strong>
+              </h2>
+              <span class="slds-size_1-of-1 slds-text-heading_medium">Select one of the starter data models below or select the custom option to build your own.</span>
+            </div>  
+            <div class="slds-grid slds-wrap slds-p-horizontal_small slds-p-vertical_medium">
+              <template id="data-models-template">
+                <div class="slds-size_1-of-3 slds-p-around_x-small">
+                  <a onclick="selectModel(this)" class="slds-box slds-box_link slds-box_x-small slds-media" aria-label="{{id}}">
+                    <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-m-left_xx-small">
+                      <span class="slds-icon_container slds-icon-utility-knowledge_base">
+                        <svg class="slds-icon {{iconClass}} slds-icon-text-default" aria-hidden="true">
+                          <use xlink:href="/assets/icons/{{icon}}"></use>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="slds-media__body slds-border_left slds-p-horizontal_small slds-p-vertical_x-small">
+                      <h2 class="slds-truncate slds-text-heading_small">{{name}}</h2>
+                      <p class="slds-m-vertical_x-small slds-line-clamp_x-small" style="height: 40px !important;">{{description}}</p>
+                      <span class="slds-badge">{{badge}}</span>
+                    </div>
+                  </a>
+                </div>
+              </template>
+            </div>
+            <footer class="slds-card__footer slds-grid slds-wrap" style="border-top:none;">
+              <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                <button onclick="showHide('account-settings', 'data-models');" class="slds-button slds-button_text-destructive">back</button>
+              </div>
+              <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                <!-- <button onclick="next(this)" class="slds-button slds-button_brand">Continue</button> -->
+              </div>
+            </footer>
+          </div>
+        </article>
+        <!--// Data Model Selection -->
+        <!-- Data Extensions Selection -->
+        <article class="slds-card slds-size_1-of-1 slds-hide" id="data-extensions">
+          <div class="slds-card__header slds-grid">
+            <div class="slds-size_1-of-1 slds-p-top_large slds-align_absolute-center" role="progressbar" aria-level="2"></div>
+          </div>
+          <div class="slds-card__body">
+            <div class="slds-grid slds-wrap slds-text-align_center slds-p-top_x-large">
+              <h2 class="slds-size_1-of-1 slds-text-heading_large slds-p-bottom_x-small">
+                Select your <strong>Data Extensions</strong>
+              </h2>
+              <span class="slds-size_1-of-1 slds-text-heading_medium">Select any data extensions you wish to include in your demo account.</span>
+            </div>  
+            <div class="slds-grid slds-wrap slds-p-horizontal_x-large slds-p-vertical_medium" id="data-tables"></div>
+            <footer class="slds-card__footer slds-grid slds-wrap" style="border-top:none;">
+              <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                <button onclick="showHide('data-models','data-extensions');" class="slds-button slds-button_text-destructive">back</button>
+              </div>
+              <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                <button onclick="selectFile()" class="slds-button slds-button_brand">Continue</button>
+              </div>
+            </footer>
+          </div>
+        </article>
+        <!--// Data Extensions Selection -->
+        <!-- Data Extensions Selection -->
+        <article class="slds-card slds-size_1-of-1 slds-hide" id="file-upload">
+          <div class="slds-card__header slds-grid">
+            <div class="slds-size_1-of-1 slds-p-top_large slds-align_absolute-center" role="progressbar" aria-level="2"></div>
+          </div>
+          <div class="slds-card__body">
+            <div class="slds-grid slds-wrap slds-text-align_center slds-p-top_x-large">
+              <h2 class="slds-size_1-of-1 slds-text-heading_large slds-p-bottom_x-small">
+                Select your <strong>Data Extensions</strong>
+              </h2>
+              <span class="slds-size_1-of-1 slds-text-heading_medium">Select any data extensions you wish to include in your demo account.</span>
+            </div>  
+            <div class="slds-grid slds-wrap slds-p-horizontal_x-large slds-p-vertical_medium">
+              <a href="/app/feeds/users.csv" rel="nofollow">Download Here</a>
+            </div>
+            <footer class="slds-card__footer slds-grid slds-wrap" style="border-top:none;">
+              <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                <button onclick="showHide('data-models','data-extensions');" class="slds-button slds-button_text-destructive">back</button>
+              </div>
+              <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                <button onclick="selectOptions()" class="slds-button slds-button_brand">Continue</button>
+              </div>
+            </footer>
+          </div>
+        </article>
+        <!--// Data Extensions Selection -->
+      </div>
+      <!-- main content -->
+    </main>
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/app/scripts/json2xml.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-checkbox-toggle.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-list-builder.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-popovers.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-progress-indicator.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-scoped-tabs.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-summary-detail.min.js"></script>
+  <script src="/ui/scripts/jquery.slds-toast.min.js"></script>
+  <script src="index.js"></script>
+  <script>
+    // onload
+    $('div[role="progressbar"]').each(function(index) {
+      $(this).html(progress(5, index));
+    });
+    loadPage();
+  </script>
+</html>

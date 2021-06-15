@@ -1,0 +1,367 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Event Uploader | Interaction Studio</title>
+    <meta name="description" content="Interaction Studio Catalog Upload">
+    <meta name="author" content="Robin Mead">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF8W7Q60XZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HF8W7Q60XZ');
+    </script>
+    <style>
+      html {
+        scroll-padding-top: 70px; /* height of sticky header */
+      }
+      body {
+        padding-bottom: 70px;
+      }
+      #navigation_panel {
+        z-index: 99;
+      }
+      .slds-text-heading_large, .slds-text-heading_medium {
+        font-weight: 400;
+        color: #00396b;
+      }
+      .slds-form-element__label {
+        font-weight:600;
+      }
+      .slds-box {padding:0.5rem;}
+      #validation-results li {
+        padding-bottom: 0.75rem;
+        font-size: 14px;
+      }
+      #validation-results .slds-badge {
+        padding: 0.25rem 0.7rem;
+      }
+    </style>
+  </head>
+  <body style="background-color:#fafaf9;">
+    <!-- Header -->
+    <header id="page-header" class="slds-global-header_container">
+      <div class="slds-global-header slds-p-vertical_medium" style="height:auto;">
+        <div class="slds-grid slds-grid_align-spread ">
+          <div class="slds-global-header__item min-width">
+            <div class="slds-page-header__col-title">
+              <div class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                  <button onclick="toggleNav()" id="nav_button" title="Navigation" class="slds-button slds-button_icon">
+                    <svg aria-hidden="true" class="slds-button__icon slds-button__icon_large">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#rows"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Navigation</span>
+                  </button>
+                </div>
+                <div class="slds-media__body">
+                  <a href="/" title="Home">
+                  <img src="/app/ui/images/q-central-logo_mini.svg" alt="Q Central" width="98">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slds-global-header__item slds-show_small slds-show">
+            <div class="slds-page-header__col-controls">
+              <div class="slds-page-header__controls">
+                <div class="slds-page-header__control">
+                  <div id="settings_dropdown-trigger" class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                    <button class="slds-button slds-p-vertical_xx-small">
+                      <span class="slds-text-heading_small">Hi, <span class="user_name">SE Trailblazer</span></span> 
+                      <svg aria-hidden="true" class="slds-button__icon slds-button__icon_medium slds-icon-text-default slds-button__icon_right">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+                      </svg>
+                    </button>
+                    <div class="slds-dropdown slds-dropdown_right slds-dropdown_x-small">
+                      <ul role="menu" aria-label="Settings" class="slds-dropdown__list">
+                        <li role="presentation" class="slds-dropdown__item"><a href="javascript:void(0);" id="replay-onboarding_button" role="menuitem" tabindex="0"><span title="Rewatch Onboarding" class="slds-truncate">Rewatch Onboarding</span></a></li>
+                        <li role="presentation" class="slds-dropdown__item"><a href="javascript:void(0);" id="display-announcements_button" role="menuitem" tabindex="-1"><span title="Display Announcement" class="slds-truncate">Display Announcements</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- // Header -->
+    <!-- Builder Form -->
+    <section id="form" class="slds-grid slds-grid_align-center slds-size_1-of-1">
+      <div class="slds-col slds-size_1-of-1 slds-grid slds-gutters_direct slds-container_x-large slds-p-top_large">
+        <div class="slds-col slds-size_1-of-1">
+          <!-- Welcome Mat -->
+          <article id="welcome" class="slds-card slds-size_1-of-1 slds-grid slds-m-top_medium">
+            <div class="slds-welcome-mat">
+              <div class="slds-welcome-mat__content slds-grid" style="height:500px;">
+                <div class="slds-welcome-mat__info slds-size_2-of-5" style="padding:3rem 1rem;">
+                  <div class="slds-welcome-mat__info-content">
+                    <div class="slds-align_absolute-center slds-grid slds-wrap">
+                      <div class="slds-size_1-of-1 slds-text-title_caps" style="font-size:20px; font-weight:400; color: #00396b" translation-key="welcome">
+                        Welcome to
+                      </div>
+                      <div class="slds-size_1-of-1 slds-welcome-mat__info-title slds-p-top_medium" style="font-size:40px; font-weight:500;">
+                        Interaction Studio<br>
+                        <span style="color:#1AA0DB;font-size:50px;font-weight:300;letter-spacing:-0.05em;">Event Uploader</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_3-of-5 slds-align_absolute-center slds-m-around_none" style="background-color: rgb(243, 242, 242);">
+                  <div class="slds-grid slds-size_1-of-1 slds-wrap slds-p-around_xx-large">
+                    <div class="slds-size_1-of-1 slds-text-heading_medium slds-p-top_xx-large slds-p-bottom_large">Upload events for your Interaction Studio dataset</div>
+                    <div class="slds-size_1-of-1 slds-text-longform" style="font-size:14px;">
+                      <p><strong>Before getting started, make sure you:</strong></p>
+                      <ul>
+                        <li>Are using a new Interaction Studio dataset</li>
+                        <li>Have read the user guide on how to use this tool. You can find it <a href="https://solutionscentral.io/posts/34d47070-8b34-11eb-ad87-97dfc5361b56" target="_blank" style="color:#006dcc; text-decoration:none; font-weight:bold;">here</a>.</li>
+                        <li>Have created and uploaded the relevant catalog(s) within your Interaction Studio LA</li>
+                        <li>Have downloaded the Events Builder template <a href="/app/files/isdb_template-file_events.csv" target="_blank" style="color:#006dcc; text-decoration:none; font-weight:bold;">here</a></li>
+                        <li>Read the <a href="https://salesforce.quip.com/ttSsAfAQ7raY" target="_blank" style="color:#006dcc; text-decoration:none; font-weight:bold;">frequently asked questions</a>.</li>
+                      </ul>
+                    </div>
+                    <div class="slds-size_1-of-1 slds-text-align_right slds-p-top_xx-large">
+                      <button onclick="start()" class="slds-button slds-button--brand slds-float_right">Let's get started!</button>
+                    </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Welcome Mat -->
+
+          <!-- File Upload Screen -->
+          <article id="upload" class="slds-card slds-size_1-of-1 slds-p-around_medium slds-hide">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_large slds-m-bottom_x-small">Import your Event Items</h2>
+                </div>
+                <div class="slds-no-flex slds-show_medium">
+                  <strong>Step 1 of 3</strong>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="brand-settings">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Please be sure to follow the User Guide closely to make sure that the file is correctly formatted or the upload will not work correctly.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap">
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-right_small">
+                  <div class="slds-text-align_left">
+                    <div class="slds-form-element slds-m-bottom--small">
+                      <label class="slds-form-element__label" for="ucp-account">
+                        <abbr class="slds-required" title="required">*</abbr>Account
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input id="ucp-account" class="slds-input" placeholder="lross123456.australia-1" value="" aria-required="true">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">
+                        Please provide the subdomain of your Interaction Studio Learning Account
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-m-bottom--small ">
+                      <label class="slds-form-element__label" for="ucp-dataset">
+                        <abbr class="slds-required" title="required">*</abbr>Dataset
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input id="ucp-dataset" class="slds-input" placeholder="dataset name..." value="" aria-required="true">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">
+                        Please provide the name of the Interaction Studio Dataset
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-m-bottom--small">
+                      <label class="slds-form-element__label" for="ucp-format">
+                        <abbr class="slds-required" title="required">*</abbr>Date Format
+                      </label>
+                      <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                          <select class="slds-select" id="ucp-format" aria-required="true">
+                            <option value="yy-mm-ddTHH:mm" selected>ISO Timestamp (yyyy-mm-ddTYYHH:mm)</option>
+                            <option value="dd/mm/yy HH:mm">United Kingdom (dd/mm/yyyy HH:mm)</option>
+                            <option value="mm/dd/yy HH:mm">United States (mm/dd/yyyy HH:mm)</option>
+                            <option value="dd.mm.yy HH:mm">European (dd.mm.yyyy HH:mm)</option>
+                            <option value="yy-mm-dd HH:mm">Timestamp (yyyy-mm-dd HH:mm)</option>
+                          </select>
+                        </div>
+                        <div class="slds-form-element__help slds-hide">
+                          Please specify the date format used in your file
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slds-form-element slds-m-bottom--small ">
+                      <label class="slds-form-element__label" for="ucp-events">
+                        <abbr class="slds-required" title="required">*</abbr>Events File&nbsp;
+                      </label>
+                      <div class="slds-form-element__control">
+                        <input type="file" id="ucp-events" class="slds-input" value="" style="line-height: normal; padding: 0.75rem 1rem;" accept=".csv" aria-required="true">
+                      </div>
+                      <div class="slds-form-element__help slds-hide">
+                        No Event data was uploaded
+                      </div>
+                      <div class="slds-text-body_small slds-text-color_inverse-weak slds-text-align_right slds-p-top_xx-small"><a href="/app/files/isdb_template-file_events.csv" class="slds-text-body_small slds-text-color_inverse-weak">Download Template File</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-size_1-of-2 slds-p-top_medium slds-p-left_large">
+                  <div id="validation-results" class="slds-size_1-of-1 slds-m-top_large slds-box slds-theme_shade slds-hide" style="padding:1rem !important;">
+
+                  </div>
+                </div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-p-top_x-large">
+                <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                  <button onclick="showHide('welcome', 'upload')" class="slds-button slds-button_text-destructive">back</button>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                  <button onclick="preview()" class="slds-button slds-button_brand" disabled>Next</button>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // File Upload Screen -->
+
+          <!-- Preview File -->
+          <article id="preview" class="slds-card slds-size_1-of-1 slds-p-around_medium slds-hide">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_large slds-m-bottom_x-small">File Preview</h2>
+                </div>
+                <div class="slds-no-flex slds-show_medium">
+                  <strong>Step 2 of 3</strong>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="product-catalog">
+              <div class="slds-size_1-of-1 slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-4 slds-align_absolute-center">
+                  <article class="slds-card slds-col slds-size_1-of-1" style="background-color: rgba(21, 137, 238, 0.8);">
+                    <div class="slds-card__body slds-card__body_inner slds-text-color_inverse slds-text-align_center">
+                      <div id="stat-events" class="slds-text-color_inverse" style="font-size:48px; font-weight:300;">0</div>
+                      <div class="slds-text-title_caps slds-text-color_inverse">Events</div>
+                    </div>
+                  </article>
+                </div>
+                <div class="slds-col  slds-size_1-of-4 slds-align_absolute-center">
+                  <article class="slds-card slds-col slds-size_1-of-1" style="background-color: rgba(21, 137, 238, 0.8);">
+                    <div class="slds-card__body slds-card__body_inner slds-text-color_inverse slds-text-align_center">
+                      <div id="stat-users" class="slds-text-color_inverse" style="font-size:48px; font-weight:300;">0</div>
+                      <div class="slds-text-title_caps slds-text-color_inverse">Users</div>
+                    </div>
+                  </article>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-align_absolute-center">
+                  <article class="slds-card slds-col slds-size_1-of-1" style="background-color: rgba(21, 137, 238, 0.8);">
+                    <div class="slds-card__body slds-card__body_inner slds-text-color_inverse slds-text-align_center">
+                      <div id="stat-types" class="slds-text-color_inverse" style="font-size:48px; font-weight:300;">0</div>
+                      <div class="slds-text-title_caps slds-text-color_inverse">Action Types</div>
+                    </div>
+                  </article>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-align_absolute-center">
+                  <article class="slds-card slds-col slds-size_1-of-1" style="background-color: rgba(21, 137, 238, 0.8);">
+                    <div class="slds-card__body slds-card__body_inner slds-text-color_inverse slds-text-align_center">
+                      <div id="stat-items" class="slds-text-color_inverse" style="font-size:48px; font-weight:300;">0</div>
+                      <div class="slds-text-title_caps slds-text-color_inverse">Catalog Items</div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="slds-size_1-of-1 slds-p-top_medium">
+                <p class="slds-m-bottom_x-small slds-show_medium">Please check your file using this preview file before continuing.</p>
+              </div>
+              <div id="file-preview" class="slds-col slds-size_1-of-1 slds-p-top_medium"></div>
+              <div class="slds-size_1-of-1">
+                <p id="file-summary" class="slds-m-vertical_x-small slds-text-align_right">Uh oh! Something went wrong.</p>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-p-top_x-large">
+                <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                  <button onclick="showHide('upload', 'preview')" class="slds-button slds-button_text-destructive">back</button>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                  <button onclick="upload()" class="slds-button slds-button_brand" disabled>Upload Events</button>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Preview File -->
+          <!-- Results -->
+          <article id="results" class="slds-card slds-size_1-of-1 slds-p-around_medium slds-hide">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-text-heading_large slds-m-bottom_x-small">Upload Results</h2>
+                </div>
+                <div class="slds-no-flex slds-show_medium">
+                  <strong>Step 3 of 3</strong>
+                </div>
+              </header>
+            </div>
+            <div class="slds-card__body slds-grid slds-wrap slds-card__body_inner" aria-label="product-catalog">
+              <div class="slds-size_1-of-1">
+                <p class="slds-m-vertical_x-small slds-show_medium">Here are the full results of your upload. Remember if you want to re-use this configuration, <strong>download</strong> the pre-formatted events file for use in the <strong>Events Uploader</strong> tool.</p>
+              </div>
+              <div id="upload-results-text" class="slds-col slds-size_1-of-1 slds-p-top_medium slds-p-bottom_x-small slds-text-align_right slds-hide"></div>
+              <div id="upload-results" class="slds-size_1-of-1">
+                <div class="slds-align_absolute-center slds-m-top_medium" style="height:6rem">
+                  <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand slds-spinner_inline">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label">
+                    <span aria-hidden="true">
+                      <strong>Initiating</strong>
+                    </span>
+                  </div>
+                  <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+                    <span class="slds-progress-bar__value" style="width:0%">
+                      <span class="slds-assistive-text">Progress: 0%</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-grid slds-wrap slds-p-top_x-large">
+                <div class="slds-col slds-size_1-of-1 slds-text-align_right">
+                  <a id="download" class="slds-button slds-button_brand">
+                    <svg class="slds-button__icon slds-button__icon_left " aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#download"></use>
+                    </svg>Download Results</a>
+                  <a href="/interactionstudio/event-uploader" class="slds-button slds-button_outline-brand">
+                    <svg class="slds-button__icon slds-button__icon_left " aria-hidden="true">
+                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#loop"></use>
+                    </svg>Start Over</a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- // Results -->
+        </div>
+      </div>
+    </section>
+    <!-- // Builder Form -->
+  </body>
+  <script src="/app/scripts/jquery-3.2.1.min.js"></script>
+  <script src="/app/scripts/jquery-ui.js"></script>
+  <script src="/app/scripts/navigation.js"></script>
+  <script src="/app/scripts/papaparse.min.js"></script>
+  <script src="/app/scripts/results-list.js"></script>
+  <script src="/app/scripts/tooltips.js"></script>
+  <script src="/app/scripts/validation-settings.js"></script>
+  <script src="/app/ui/scripts/jquery.slds-checkbox-toggle.min.js"></script>
+  <script src="/app/ui/scripts/jquery.slds-data-tables.min.js"></script>
+  <script src="/app/ui/scripts/jquery.slds-summary-detail.min.js"></script>
+  <script src="/app/ui/scripts/jquery.slds-tabs.min.js"></script>
+  <script src="index.js"></script>
+</html>
