@@ -262,7 +262,7 @@ function submitForm() {
                     }
                     // Set some hard coded elements
                     payload.flags = { "pageview" : true };
-                    payload.source = { "channel" : "Demo Builder", "local": "enUS"};
+                    payload.source = { "channel" : "Web", "local": "enUS"};
 
                     // Check if date exists
                     
@@ -288,11 +288,10 @@ function submitForm() {
                         "data": JSON.stringify(payload),
                     };
                         
-                    $.ajax(requestSettings);/*.done(function (response) {
+                    $.ajax(requestSettings).done(function (response) {
                         console.log(JSON.stringify(payload));
                         console.log(response);
-                    });
-                    */
+                    });  
                 });
                 
                 var iterate = $("#ucp-form .ucp-user-catalog-actions-row").each(function(r, row) {
@@ -354,7 +353,7 @@ function submitForm() {
 
                             // Set some hard coded elements
                             payload.flags = { "pageview" : true };
-                            payload.source = { "channel" : "Demo Builder", "local": "enUS"};
+                            payload.source = { "channel" : "Web", "local": "enUS"};
 
                             // Check if date exists
                             if(inputValues["ucp-action-datetime"] != ''){
@@ -380,11 +379,11 @@ function submitForm() {
                                 "data": JSON.stringify(payload),
                             };
                                 
-                            $.ajax(requestSettings);/*.done(function (response) {
+                            $.ajax(requestSettings).done(function (response) {
                                 console.log(JSON.stringify(payload));
                                 console.log(response);
                             });
-                            */
+
                         }else if(inputValues["ucp-action"] == "Purchase"){
                             //Purchase request that supports multiple items - don't send request, just loop to store inputs, checking Datetime - when it's different, then sendRequest... or do that later?
                             
